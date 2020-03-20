@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *.iml
 .gradle
 /local.properties
@@ -99,4 +98,3 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
->>>>>>> f795d3acff81652e35a448f4538052bcb0ad7cbb
