@@ -53,8 +53,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void initDialog() {
         dialog = new IOSMessageDialog.Builder(this)
+                .setSize(600 , 300)
                 .setCancelable(true)
                 .setCancelListener(null)
+                .setMessage("这是信息")
+                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
+                    @Override
+                    public void onConfirm() {
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+                })
                 .create();
 
         dialog.show();

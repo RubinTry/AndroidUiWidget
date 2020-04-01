@@ -2,5 +2,5 @@
 <resources>
 
     <color name="dialog_ios_default_line">#A0A6A6A6</color>
-    <color name="dialog_ios_default_button_check">#F05CACEE</color>
+    <color name="dialog_ios_default_button_check">#5B91AD</color>
 </resources>

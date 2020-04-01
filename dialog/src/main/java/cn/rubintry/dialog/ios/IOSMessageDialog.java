@@ -3,10 +3,9 @@ package cn.rubintry.dialog.ios;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 
@@ -18,30 +17,35 @@ import cn.rubintry.dialog.base.IDialogBuilder;
  * @author logcat
  * IOS风格的消息弹窗(提示窗)
  */
-public class IOSMessageDialog extends BaseCenterDialog  {
+public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickListener {
 
+    private final OnButtonClickListener onButtonClickListener;
+    private final String message;
     private Drawable drawable;
+    private Context context;
 
     public IOSMessageDialog(Builder builder) {
+
         super(builder.contextWeakReference.get(), R.style.dialog_default_style);
         setCancelable(builder.cancelable);
         setOnCancelListener(builder.onCancelListener);
+        this.drawable = builder.drawable;
+        this.width = builder.width;
+        this.height = builder.height;
+        this.onButtonClickListener = builder.onButtonClickListener;
+        this.message = builder.message;
+        this.context = builder.contextWeakReference.get();
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    /**
-     * 设置窗体尺寸
-     *
-     * @param width
-     * @param height
-     */
-    @Override
-    public void setSize(int width, int height) {
-        super.setSize(width, height);
+        setOnClickListener(this, R.id.btn_confirm);
+        setOnClickListener(this, R.id.btn_cancel);
+        if(message != null){
+            setText(R.id.tv_content , message);
+        }
     }
 
     /**
@@ -62,6 +66,18 @@ public class IOSMessageDialog extends BaseCenterDialog  {
         super.show();
     }
 
+    @Override
+    public void onClick(View v) {
+        if (onButtonClickListener == null) {
+            return;
+        }
+        if (v.getId() == R.id.btn_confirm) {
+            onButtonClickListener.onConfirm();
+        } else {
+            onButtonClickListener.onCancel();
+        }
+    }
+
     public static class Builder implements IDialogBuilder {
 
         private WeakReference<Context> contextWeakReference;
@@ -70,11 +86,22 @@ public class IOSMessageDialog extends BaseCenterDialog  {
         private OnCancelListener onCancelListener;
         private boolean cancelable;
         private Drawable drawable;
+        private String message;
+        private OnButtonClickListener onButtonClickListener;
 
         public Builder(Context context) {
             contextWeakReference = new WeakReference<>(context);
         }
 
+        public Builder setMessage(String message) {
+            this.message = message;
+            return this;
+        }
+
+        public Builder setOnButtonClickListener(OnButtonClickListener onButtonClickListener) {
+            this.onButtonClickListener = onButtonClickListener;
+            return this;
+        }
 
         @Override
         public Builder setSize(int width, int height) {
@@ -105,5 +132,19 @@ public class IOSMessageDialog extends BaseCenterDialog  {
         public IOSMessageDialog create() {
             return new IOSMessageDialog(this);
         }
+    }
+
+
+    public interface OnButtonClickListener {
+        /**
+         * 确定
+         */
+        void onConfirm();
+
+
+        /**
+         * 取消
+         */
+        void onCancel();
     }
 }
