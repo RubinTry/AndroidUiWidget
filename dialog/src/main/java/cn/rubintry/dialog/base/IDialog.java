@@ -9,8 +9,6 @@ import android.graphics.drawable.Drawable;
 public interface IDialog extends DialogInterface {
     /**
      * 设置dialog尺寸
-     * @param width
-     * @param height
      */
     void setSize(int width , int height);
 
@@ -24,7 +22,6 @@ public interface IDialog extends DialogInterface {
 
     /**
      * 设置drawable资源
-     * @return
      */
     Drawable setDrawable();
 
@@ -32,13 +29,5 @@ public interface IDialog extends DialogInterface {
      * 显示dialog
      */
     void show();
-
-    @Override
-    void cancel();
-
-    @Override
-    void dismiss();
-
-
 
 }

@@ -2,49 +2,40 @@ package cn.rubintry.dialog.ios;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 
-import cn.rubintry.dialog.base.BaseCenterDialog;
-import cn.rubintry.dialog.base.IDialog;
-import cn.rubintry.dialog.base.IDialogBuilder;
 import cn.rubintry.dialog.R;
+import cn.rubintry.dialog.base.BaseCenterDialog;
+import cn.rubintry.dialog.base.IDialogBuilder;
 
 /**
  * @author logcat
- *  IOS风格的消息弹窗(提示窗)
+ * IOS风格的消息弹窗(提示窗)
  */
-public class IOSMessageDialog extends BaseCenterDialog {
+public class IOSMessageDialog extends BaseCenterDialog  {
 
     private Drawable drawable;
 
-
-    protected IOSMessageDialog(@NonNull Context context) {
-        super(context);
-    }
-
-    protected IOSMessageDialog(@NonNull Context context, int themeResId) {
-        super(context, themeResId);
-    }
-
-    protected IOSMessageDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
-    }
-
     public IOSMessageDialog(Builder builder) {
-        super(builder.contextWeakReference.get() , builder.cancelable , builder.onCancelListener);
-        this.width = builder.width;
-        this.height = builder.height;
-        this.drawable = builder.drawable;
-        setContent();
+        super(builder.contextWeakReference.get(), R.style.dialog_default_style);
+        setCancelable(builder.cancelable);
+        setOnCancelListener(builder.onCancelListener);
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     /**
      * 设置窗体尺寸
+     *
      * @param width
      * @param height
      */
@@ -53,14 +44,11 @@ public class IOSMessageDialog extends BaseCenterDialog {
         super.setSize(width, height);
     }
 
-
     /**
      * 设置窗体布局
-     * @return
      */
     @Override
     protected int setContent() {
-        setSize(width , height);
         return R.layout.item_ios_message_dialog;
     }
 
@@ -73,8 +61,6 @@ public class IOSMessageDialog extends BaseCenterDialog {
     public void show() {
         super.show();
     }
-
-
 
     public static class Builder implements IDialogBuilder {
 

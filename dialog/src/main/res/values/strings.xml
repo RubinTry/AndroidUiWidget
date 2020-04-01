@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">dialog</string>
+
+    <string name="dialog_ios_default_title">提示</string>
+    <string name="dialog_ios_default_next">确定</string>
+    <string name="dialog_ios_default_cancel">取消</string>
 </resources>

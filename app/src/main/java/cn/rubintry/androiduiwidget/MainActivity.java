@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -54,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         dialog = new IOSMessageDialog.Builder(this)
                 .setCancelable(true)
                 .setCancelListener(null)
-                .setSize(732 , 316)
                 .create();
 
         dialog.show();
