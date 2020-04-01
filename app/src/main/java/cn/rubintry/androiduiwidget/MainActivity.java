@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,6 +14,8 @@ import java.util.List;
 
 import cn.rubintry.androiduiwidget.adapter.TestListAdapter;
 import cn.rubintry.androiduiwidget.model.TestDataModel;
+import cn.rubintry.dialog.base.IDialog;
+import cn.rubintry.dialog.ios.IOSMessageDialog;
 import cn.rubintry.widget.elastic.ElasticView;
 import cn.rubintry.widget.elastic.OnReadyPullListener;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private List<TestDataModel> dataList;
     private TestListAdapter testListAdapter;
     private NestedScrollView nslContent;
+    private IDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         rvTest = findViewById(R.id.rvTest);
         nslContent = findViewById(R.id.nslContent);
         initRecyclerView();
+        initDialog();
         esvContainer.setHeader(imgWorkerLine)
         .setOnReadyPullListener(new OnReadyPullListener() {
             @Override
@@ -45,6 +48,16 @@ public class MainActivity extends AppCompatActivity {
                 return nslContent.getScrollY() == 0;
             }
         });
+    }
+
+    private void initDialog() {
+        dialog = new IOSMessageDialog.Builder(this)
+                .setCancelable(true)
+                .setCancelListener(null)
+                .setSize(732 , 316)
+                .create();
+
+        dialog.show();
     }
 
     private void initRecyclerView() {

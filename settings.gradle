@@ -1,2 +1,2 @@
-include ':app', ':widget'
+include ':app', ':widget', ':dialog'
 rootProject.name='AndroidUiWidget'
