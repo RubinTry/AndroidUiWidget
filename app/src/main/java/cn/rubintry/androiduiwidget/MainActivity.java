@@ -5,6 +5,9 @@ import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,9 +19,11 @@ import java.util.List;
 import cn.rubintry.androiduiwidget.adapter.TestListAdapter;
 import cn.rubintry.androiduiwidget.model.TestDataModel;
 import cn.rubintry.dialog.base.IDialog;
+import cn.rubintry.dialog.ios.IOSBottomListDialog;
 import cn.rubintry.dialog.ios.IOSMessageDialog;
 import cn.rubintry.widget.elastic.ElasticView;
 import cn.rubintry.widget.elastic.OnReadyPullListener;
+import cn.rubintry.widget.elastic.ScreenUtils;
 
 /**
  * @author logcat
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private TestListAdapter testListAdapter;
     private NestedScrollView nslContent;
     private IDialog dialog;
+    private IDialog bottomDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,25 +58,58 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initDialog() {
-        dialog = new IOSMessageDialog.Builder(this)
-                .setSize(600 , 300)
+//        dialog = new IOSMessageDialog.Builder(this)
+//                .setSize(ScreenUtils.getScreenWidth(this), ScreenUtils.getScreenHeight(this))
+//                .setCancelable(true)
+//                .setCancelListener(null)
+//                .setMessage("这是信息")
+//                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
+//                    @Override
+//                    public void onConfirm() {
+//                        Toast.makeText(MainActivity.this, "点击了确定", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onCancel() {
+//                        Toast.makeText(MainActivity.this, "点击了取消", Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .create();
+//
+//        dialog.show();
+
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            list.add(i + "");
+        }
+
+        bottomDialog = new IOSBottomListDialog.Builder(this)
                 .setCancelable(true)
-                .setCancelListener(null)
-                .setMessage("这是信息")
-                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
+                .setList(list)
+                .setCancelListener(new DialogInterface.OnCancelListener() {
                     @Override
-                    public void onConfirm() {
+                    public void onCancel(DialogInterface dialog) {
 
                     }
-
+                })
+                .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
                     @Override
                     public void onCancel() {
 
                     }
-                })
-                .create();
 
-        dialog.show();
+                    @Override
+                    public void onItemClick() {
+
+                    }
+
+                    @Override
+                    public void onConfirm() {
+
+                    }
+                }).create();
+
+        bottomDialog.show();
     }
 
     private void initRecyclerView() {

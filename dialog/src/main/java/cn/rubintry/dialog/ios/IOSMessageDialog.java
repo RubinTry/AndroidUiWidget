@@ -3,13 +3,12 @@ package cn.rubintry.dialog.ios;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 
 import cn.rubintry.dialog.R;
+import cn.rubintry.dialog.base.BaseClickListener;
 import cn.rubintry.dialog.base.BaseCenterDialog;
 import cn.rubintry.dialog.base.IDialogBuilder;
 
@@ -22,7 +21,6 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
     private final OnButtonClickListener onButtonClickListener;
     private final String message;
     private Drawable drawable;
-    private Context context;
 
     public IOSMessageDialog(Builder builder) {
 
@@ -53,7 +51,7 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
      */
     @Override
     protected int setContent() {
-        return R.layout.item_ios_message_dialog;
+        return R.layout.ios_message_dialog;
     }
 
     @Override
@@ -71,6 +69,7 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         if (onButtonClickListener == null) {
             return;
         }
+        this.cancel();
         if (v.getId() == R.id.btn_confirm) {
             onButtonClickListener.onConfirm();
         } else {
@@ -93,38 +92,46 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
             contextWeakReference = new WeakReference<>(context);
         }
 
-        public Builder setMessage(String message) {
+        @Override
+        public IDialogBuilder setMessage(String message) {
             this.message = message;
             return this;
         }
 
-        public Builder setOnButtonClickListener(OnButtonClickListener onButtonClickListener) {
-            this.onButtonClickListener = onButtonClickListener;
-            return this;
-        }
+
+//        public IDialogBuilder setOnButtonClickListener(OnButtonClickListener onButtonClickListener) {
+//            this.onButtonClickListener = onButtonClickListener;
+//            return this;
+//        }
 
         @Override
-        public Builder setSize(int width, int height) {
+        public IDialogBuilder setSize(int width, int height) {
             this.width = width;
             this.height = height;
             return this;
         }
 
         @Override
-        public Builder setDrawable(Drawable drawable) {
+        public IDialogBuilder setDrawable(Drawable drawable) {
             this.drawable = drawable;
             return this;
         }
 
         @Override
-        public Builder setCancelable(boolean cancelable) {
+        public IDialogBuilder setCancelable(boolean cancelable) {
             this.cancelable = cancelable;
             return this;
         }
 
         @Override
-        public Builder setCancelListener(OnCancelListener cancelListener) {
+        public IDialogBuilder setCancelListener(OnCancelListener cancelListener) {
             this.onCancelListener = cancelListener;
+            return this;
+        }
+
+        @Override
+        public IDialogBuilder setOnButtonClickListener(BaseClickListener listener) {
+            this.onButtonClickListener = (OnButtonClickListener) listener;
             return this;
         }
 
@@ -135,16 +142,17 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
     }
 
 
-    public interface OnButtonClickListener {
+    public interface OnButtonClickListener extends BaseClickListener {
         /**
-         * 确定
+         *  确定
          */
+        @Override
         void onConfirm();
-
 
         /**
          * 取消
          */
+        @Override
         void onCancel();
     }
 }

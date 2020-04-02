@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
+    android:minWidth="315dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@drawable/back_round_white_10"
@@ -9,8 +10,7 @@
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:text="@string/dialog_ios_default_title"
         android:textColor="#333333"
@@ -21,8 +21,7 @@
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:minHeight="54dp"
         android:gravity="center"
         android:textSize="14sp" />
 
@@ -39,7 +38,8 @@
         <TextView
             android:id="@+id/btn_cancel"
             style="@style/dialog_ios_default_button_style"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_cancel_ripple_button"
             android:text="@string/dialog_ios_default_cancel" />
@@ -52,7 +52,8 @@
         <TextView
             android:id="@+id/btn_confirm"
             style="@style/dialog_ios_default_button_style"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_confirm_ripple_button"
             android:text="@string/dialog_ios_default_next" />

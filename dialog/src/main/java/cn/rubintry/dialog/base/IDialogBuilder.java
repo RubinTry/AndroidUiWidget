@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 
 /**
+ * Dialog构造器接口
  * @author logcat
  */
 public interface IDialogBuilder {
@@ -19,7 +20,20 @@ public interface IDialogBuilder {
     IDialogBuilder setSize(int width , int height);
 
 
+    /**
+     * 设置dialog背景drawable
+     * @param drawable
+     * @return
+     */
     IDialogBuilder setDrawable(Drawable drawable);
+
+
+    /**
+     *  设置消息
+     * @param message
+     * @return
+     */
+    IDialogBuilder setMessage(String message);
 
     /**
      * 设置是否可以通过系统交互取消dialog
@@ -34,6 +48,17 @@ public interface IDialogBuilder {
      * @return
      */
     IDialogBuilder setCancelListener(DialogInterface.OnCancelListener cancelListener);
+
+
+    /**
+     *  默认的按钮点击事件
+     * @param listener
+     * @return
+     */
+    IDialogBuilder  setOnButtonClickListener(BaseClickListener listener);
+
+
+
 
 
     /**

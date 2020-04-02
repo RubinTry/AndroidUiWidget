@@ -6,11 +6,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,28 +15,27 @@ import androidx.appcompat.app.AlertDialog;
 
 /**
  * @author logcat
- * 构建一个显示在屏幕中间的dialog
+ * 构建一个显示在屏幕底部的dialog
  */
-public class BaseCenterDialog extends BaseDialog implements IDialog {
-
+public class BaseBottomDialog extends BaseDialog {
     private static final int DEFAULT_WIDTH = 315;
     private static final int DEFAULT_HEIGHT = 200;
+    protected Context context;
     protected int width;
     protected int height;
-    protected Context context;
-    protected BaseCenterDialog(@NonNull Context context) {
+    protected BaseBottomDialog(@NonNull Context context) {
         super(context);
-
     }
 
-    protected BaseCenterDialog(@NonNull Context context, int themeResId) {
+    protected BaseBottomDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
         this.context = context.getApplicationContext();
     }
 
-    protected BaseCenterDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
+    protected BaseBottomDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +47,16 @@ public class BaseCenterDialog extends BaseDialog implements IDialog {
         setSize(width , height);
     }
 
+    protected int setContent() {
+        return 0;
+    }
+
+
     private void initWindow(@NonNull Window window) {
         window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         // 然后弹出输入法
         window.getDecorView().setPadding(0, 0, 0, 0);
-        window.setGravity(Gravity.CENTER);
+        window.setGravity(Gravity.BOTTOM);
         //调整窗体大小
         WindowManager.LayoutParams params = window.getAttributes();
         params.width = this.width;
@@ -67,6 +68,7 @@ public class BaseCenterDialog extends BaseDialog implements IDialog {
         window.setBackgroundDrawable(drawable);
         window.setAttributes(params);
     }
+
 
     @Override
     public void setSize(int width, int height) {
@@ -84,30 +86,8 @@ public class BaseCenterDialog extends BaseDialog implements IDialog {
         }
     }
 
-
-    protected int setContent() {
-        return 0;
-    }
-
     @Override
     public Drawable setDrawable() {
         return null;
     }
-
-
-    @Override
-    public void setOnClickListener(View.OnClickListener listener , int resId){
-        findViewById(resId).setOnClickListener(listener);
-    }
-
-    @Override
-    public void setText(int resId , String msg){
-        View view = findViewById(resId);
-        if(view != null && view instanceof TextView){
-            ((TextView) view).setText(msg);
-        }
-    }
-
-
-
 }
