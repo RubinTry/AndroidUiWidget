@@ -18,8 +18,8 @@ import androidx.appcompat.app.AlertDialog;
  * 构建一个显示在屏幕底部的dialog
  */
 public class BaseBottomDialog extends BaseDialog {
-    private static final int DEFAULT_WIDTH = 315;
-    private static final int DEFAULT_HEIGHT = 200;
+    private static final int DEFAULT_WIDTH = WindowManager.LayoutParams.WRAP_CONTENT;
+    private static final int DEFAULT_HEIGHT = WindowManager.LayoutParams.WRAP_CONTENT;
     protected Context context;
     protected int width;
     protected int height;
@@ -30,6 +30,8 @@ public class BaseBottomDialog extends BaseDialog {
     protected BaseBottomDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
         this.context = context.getApplicationContext();
+        this.width = 0;
+        this.height = 0;
     }
 
     protected BaseBottomDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
@@ -41,9 +43,6 @@ public class BaseBottomDialog extends BaseDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setContent());
-        if (getWindow() != null) {
-            initWindow(getWindow());
-        }
         setSize(width , height);
     }
 
@@ -52,38 +51,40 @@ public class BaseBottomDialog extends BaseDialog {
     }
 
 
-    private void initWindow(@NonNull Window window) {
-        window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+    @Override
+    public void show() {
+        super.show();
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         // 然后弹出输入法
-        window.getDecorView().setPadding(0, 0, 0, 0);
-        window.setGravity(Gravity.BOTTOM);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        getWindow().getDecorView().setPadding(0, 0, 0, 0);
+        getWindow().setGravity(Gravity.BOTTOM);
         //调整窗体大小
-        WindowManager.LayoutParams params = window.getAttributes();
+        WindowManager.LayoutParams params = getWindow().getAttributes();
         params.width = this.width;
         params.height = this.height;
         Drawable drawable = setDrawable();
         if(drawable == null){
             drawable = new ColorDrawable(Color.TRANSPARENT);
         }
-        window.setBackgroundDrawable(drawable);
-        window.setAttributes(params);
+        getWindow().setBackgroundDrawable(drawable);
+        getWindow().setAttributes(params);
     }
-
 
     @Override
     public void setSize(int width, int height) {
         if(width == 0){
-            width = DEFAULT_WIDTH;
+            this.width = DEFAULT_WIDTH;
         }
         if(height == 0){
-            height = DEFAULT_HEIGHT;
+            this.height = DEFAULT_HEIGHT;
         }
-        if (getWindow() != null) {
-            WindowManager.LayoutParams params = getWindow().getAttributes();
-            params.width = width;
-            params.height = height;
-            getWindow().setAttributes(params);
-        }
+//        if (getWindow() != null) {
+//            WindowManager.LayoutParams params = getWindow().getAttributes();
+//            params.width = width;
+//            params.height = height;
+//            getWindow().setAttributes(params);
+//        }
     }
 
     @Override

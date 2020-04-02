@@ -3,7 +3,9 @@ package cn.rubintry.dialog.ios;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import java.lang.ref.WeakReference;
 
@@ -21,12 +23,11 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
     private final OnButtonClickListener onButtonClickListener;
     private final String message;
     private Drawable drawable;
+    private LinearLayout llcontainer;
 
     public IOSMessageDialog(Builder builder) {
 
-        super(builder.contextWeakReference.get(), R.style.dialog_default_style);
-        setCancelable(builder.cancelable);
-        setOnCancelListener(builder.onCancelListener);
+        super(builder.contextWeakReference.get(), builder.cancelable , builder.onCancelListener);
         this.drawable = builder.drawable;
         this.width = builder.width;
         this.height = builder.height;
@@ -44,6 +45,8 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         if(message != null){
             setText(R.id.tv_content , message);
         }
+        llcontainer = findViewById(R.id.llcontainer);
+        llcontainer.setOnClickListener(this);
     }
 
     /**
@@ -69,12 +72,16 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         if (onButtonClickListener == null) {
             return;
         }
-        this.cancel();
         if (v.getId() == R.id.btn_confirm) {
             onButtonClickListener.onConfirm();
-        } else {
+            this.cancel();
+        } else if(v.getId() == R.id.btn_cancel) {
             onButtonClickListener.onCancel();
+            this.cancel();
+        }else if(v.getId() == R.id.llcontainer){
+            Log.d("dialog", "onClick: ");
         }
+
     }
 
     public static class Builder implements IDialogBuilder {
@@ -99,10 +106,6 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         }
 
 
-//        public IDialogBuilder setOnButtonClickListener(OnButtonClickListener onButtonClickListener) {
-//            this.onButtonClickListener = onButtonClickListener;
-//            return this;
-//        }
 
         @Override
         public IDialogBuilder setSize(int width, int height) {

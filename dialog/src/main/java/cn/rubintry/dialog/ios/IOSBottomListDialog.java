@@ -38,10 +38,8 @@ public class IOSBottomListDialog extends BaseBottomDialog {
     }
 
     public IOSBottomListDialog(Builder builder) {
-        super(builder.contextWeakReference.get(), R.style.dialog_default_style);
+        super(builder.contextWeakReference.get(), builder.cancelable , builder.cancelListener);
         this.messageList = builder.list;
-        this.setCancelable(builder.cancelable);
-        this.setOnCancelListener(builder.cancelListener);
         this.itemTextColor = builder.itemTextColor;
         this.itemTextSize = builder.itemTextSize;
         this.width = builder.width;
@@ -137,6 +135,9 @@ public class IOSBottomListDialog extends BaseBottomDialog {
 
         @Override
         public IDialog create() {
+            if(list == null || list.size() == 0){
+                throw new IllegalArgumentException("Please add some items!!!");
+            }
             return new IOSBottomListDialog(this);
         }
     }

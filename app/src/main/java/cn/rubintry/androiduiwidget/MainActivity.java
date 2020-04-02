@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -59,9 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initDialog() {
 //        dialog = new IOSMessageDialog.Builder(this)
-//                .setSize(ScreenUtils.getScreenWidth(this), ScreenUtils.getScreenHeight(this))
 //                .setCancelable(true)
-//                .setCancelListener(null)
 //                .setMessage("这是信息")
 //                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
 //                    @Override
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                })
 //                .create();
-//
+
 //        dialog.show();
 
         List<String> list = new ArrayList<>();
@@ -86,12 +85,7 @@ public class MainActivity extends AppCompatActivity {
         bottomDialog = new IOSBottomListDialog.Builder(this)
                 .setCancelable(true)
                 .setList(list)
-                .setCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-
-                    }
-                })
+                .setCancelListener(null)
                 .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
                     @Override
                     public void onCancel() {
