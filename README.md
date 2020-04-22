@@ -1,5 +1,6 @@
 
-# About
+## [中文文档][]
+## About
 **[AndroidUiWidget][readme]**:watermelon: 是一个丰富的UI组件库，它能够使您开发效率大大提升。:watermelon:
 
 ## Documentation
