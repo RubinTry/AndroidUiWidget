@@ -2,8 +2,9 @@
 # About
 **[AndroidUiWidget][readme]**:watermelon: 是一个丰富的UI组件库，它能够使您开发效率大大提升。:watermelon:
 
-## 组件列表
-1.ElasticView-------------->图片下拉放大组件<br/>
+## Documentation
+
+### Dialog
 
 
 

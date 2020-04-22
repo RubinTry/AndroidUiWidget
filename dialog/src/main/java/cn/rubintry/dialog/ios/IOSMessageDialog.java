@@ -20,11 +20,11 @@ import cn.rubintry.dialog.base.IDialogBuilder;
  */
 public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickListener {
 
-    private final OnButtonClickListener onButtonClickListener;
-    private final String message;
-    private final Integer textColor;
-    private final Integer textSize;
-    private final String title;
+    private OnButtonClickListener onButtonClickListener;
+    private String message;
+    private Integer textColor;
+    private Integer textSize;
+    private String title;
     private Drawable drawable;
     private LinearLayout llContainer;
 

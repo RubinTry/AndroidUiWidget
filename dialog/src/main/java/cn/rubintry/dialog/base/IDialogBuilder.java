@@ -84,7 +84,6 @@ public interface IDialogBuilder {
 
 
 
-
     /**
      * 创建dialog
      * @return
