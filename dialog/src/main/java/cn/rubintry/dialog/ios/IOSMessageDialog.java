@@ -22,11 +22,13 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
 
     private final OnButtonClickListener onButtonClickListener;
     private final String message;
+    private final Integer textColor;
+    private final Integer textSize;
+    private final String title;
     private Drawable drawable;
-    private LinearLayout llcontainer;
+    private LinearLayout llContainer;
 
     public IOSMessageDialog(Builder builder) {
-
         super(builder.contextWeakReference.get(), builder.cancelable , builder.onCancelListener);
         this.drawable = builder.drawable;
         this.width = builder.width;
@@ -34,6 +36,9 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         this.onButtonClickListener = builder.onButtonClickListener;
         this.message = builder.message;
         this.context = builder.contextWeakReference.get();
+        this.textColor = builder.textColor;
+        this.textSize = builder.textSize;
+        this.title = builder.title;
     }
 
 
@@ -42,11 +47,24 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setOnClickListener(this, R.id.btn_confirm);
         setOnClickListener(this, R.id.btn_cancel);
+
+        if(title != null){
+            setText(R.id.tv_title , title);
+        }
+
         if(message != null){
             setText(R.id.tv_content , message);
         }
-        llcontainer = findViewById(R.id.llcontainer);
-        llcontainer.setOnClickListener(this);
+
+        if(textColor != null){
+            setTextColor(R.id.tv_content , textColor.intValue());
+        }
+
+        if(textSize != null){
+            setTextSize(R.id.tv_content , textSize.intValue());
+        }
+        llContainer = findViewById(R.id.llContainer);
+        llContainer.setOnClickListener(this);
     }
 
     /**
@@ -78,7 +96,7 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         } else if(v.getId() == R.id.btn_cancel) {
             onButtonClickListener.onCancel();
             this.cancel();
-        }else if(v.getId() == R.id.llcontainer){
+        }else if(v.getId() == R.id.llContainer){
             Log.d("dialog", "onClick: ");
         }
 
@@ -93,10 +111,19 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         private boolean cancelable;
         private Drawable drawable;
         private String message;
+        private Integer textColor;
+        private Integer textSize;
         private OnButtonClickListener onButtonClickListener;
+        private String title;
 
         public Builder(Context context) {
             contextWeakReference = new WeakReference<>(context);
+        }
+
+        @Override
+        public IDialogBuilder setTextColor(Integer textColor) {
+            this.textColor = textColor;
+            return this;
         }
 
         @Override
@@ -105,6 +132,11 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
             return this;
         }
 
+        @Override
+        public IDialogBuilder setMessageTextSize(int textSize) {
+            this.textSize = textSize;
+            return this;
+        }
 
 
         @Override
@@ -117,6 +149,12 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         @Override
         public IDialogBuilder setDrawable(Drawable drawable) {
             this.drawable = drawable;
+            return this;
+        }
+
+        @Override
+        public IDialogBuilder setTitle(String title) {
+            this.title = title;
             return this;
         }
 

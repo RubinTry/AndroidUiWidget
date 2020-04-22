@@ -14,11 +14,12 @@ import cn.rubintry.dialog.base.BaseBottomDialog;
 import cn.rubintry.dialog.base.BaseClickListener;
 import cn.rubintry.dialog.base.IBottomDialogBuilder;
 import cn.rubintry.dialog.base.IDialog;
+import cn.rubintry.dialog.base.IDialogBuilder;
 
 
 /**
  * @author logcat
- *  底部弹出式列表弹窗
+ *  底部弹出式列表弹窗(IOS风格)
  */
 public class IOSBottomListDialog extends BaseBottomDialog {
     private Drawable drawable;
@@ -105,7 +106,22 @@ public class IOSBottomListDialog extends BaseBottomDialog {
         }
 
         @Override
+        public IDialogBuilder setTitle(String title) {
+            return null;
+        }
+
+        @Override
         public Builder setMessage(String message) {
+            return this;
+        }
+
+        @Override
+        public IDialogBuilder setMessageTextSize(int spValue) {
+            return null;
+        }
+
+        @Override
+        public Builder setTextColor(Integer textColor) {
             return this;
         }
 

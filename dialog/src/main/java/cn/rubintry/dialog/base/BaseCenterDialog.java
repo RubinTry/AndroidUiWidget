@@ -20,7 +20,7 @@ import androidx.appcompat.app.AlertDialog;
  * @author logcat
  * 构建一个显示在屏幕中间的dialog
  */
-public class BaseCenterDialog extends BaseDialog implements IDialog {
+public class BaseCenterDialog extends BaseDialog {
     private static final int DEFAULT_WIDTH = WindowManager.LayoutParams.WRAP_CONTENT;
     private static final int DEFAULT_HEIGHT = WindowManager.LayoutParams.WRAP_CONTENT;
 
@@ -50,7 +50,6 @@ public class BaseCenterDialog extends BaseDialog implements IDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setContent());
-
         setSize(width , height);
     }
 
@@ -83,12 +82,6 @@ public class BaseCenterDialog extends BaseDialog implements IDialog {
         if(height == 0){
             this.height = DEFAULT_HEIGHT;
         }
-//        if (getWindow() != null) {
-//            WindowManager.LayoutParams params = getWindow().getAttributes();
-//            params.width = width;
-//            params.height = height;
-//            getWindow().setAttributes(params);
-//        }
     }
 
 
@@ -106,15 +99,6 @@ public class BaseCenterDialog extends BaseDialog implements IDialog {
     public void setOnClickListener(View.OnClickListener listener , int resId){
         findViewById(resId).setOnClickListener(listener);
     }
-
-    @Override
-    public void setText(int resId , String msg){
-        View view = findViewById(resId);
-        if(view != null && view instanceof TextView){
-            ((TextView) view).setText(msg);
-        }
-    }
-
 
 
 }

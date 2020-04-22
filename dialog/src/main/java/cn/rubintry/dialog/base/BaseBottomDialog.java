@@ -79,12 +79,6 @@ public class BaseBottomDialog extends BaseDialog {
         if(height == 0){
             this.height = DEFAULT_HEIGHT;
         }
-//        if (getWindow() != null) {
-//            WindowManager.LayoutParams params = getWindow().getAttributes();
-//            params.width = width;
-//            params.height = height;
-//            getWindow().setAttributes(params);
-//        }
     }
 
     @Override

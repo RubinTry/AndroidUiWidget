@@ -39,6 +39,22 @@ public class BaseDialog extends AlertDialog implements IDialog {
         }
     }
 
+
+    public void setTextColor(int resId , int color){
+        View view = findViewById(resId);
+        if(view != null && view instanceof TextView){
+            ((TextView) view).setTextColor(color);
+        }
+    }
+
+
+    public void setTextSize(int resId , int size){
+        View view = findViewById(resId);
+        if(view != null && view instanceof TextView){
+            ((TextView) view).setTextSize(size);
+        }
+    }
+
     @Override
     public void setSize(int width, int height) {
 

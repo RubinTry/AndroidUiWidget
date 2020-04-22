@@ -29,11 +29,35 @@ public interface IDialogBuilder {
 
 
     /**
+     *  设置标题
+     * @param title
+     * @return
+     */
+    IDialogBuilder setTitle(String title);
+
+
+    /**
      *  设置消息
      * @param message
      * @return
      */
     IDialogBuilder setMessage(String message);
+
+
+    /**
+     * 设置文本内容的字体大小
+     * @param spValue
+     * @return
+     */
+    IDialogBuilder setMessageTextSize(int spValue);
+
+
+    /**
+     * 设置字体颜色
+     * @param textColor
+     * @return
+     */
+    IDialogBuilder setTextColor(Integer textColor);
 
     /**
      * 设置是否可以通过系统交互取消dialog
