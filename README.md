@@ -14,6 +14,20 @@
 
 ## Get start
 
+maven
+```xml
+   <dependency>
+	<groupId>cn.rubintry.widget</groupId>
+	<artifactId>dialog</artifactId>
+	<version>1.0.0</version>
+	<type>pom</type>
+   </dependency>
+```
+
+gradle
+```groovy
+implementation 'cn.rubintry.widget:dialog:1.0.0'
+```
 
 
 ## How to use?
