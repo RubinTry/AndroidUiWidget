@@ -1,5 +1,5 @@
 
-## [中文文档][]
+## [中文文档][readme_cn]
 ## About
 **[AndroidUiWidget][readme]**:watermelon: 是一个丰富的UI组件库，它能够使您开发效率大大提升。:watermelon:
 
@@ -37,3 +37,4 @@ limitations under the License.
 [readme]: https://github.com/Rubintry/AndroidUiWidget
 [auc]: https://github.com/Rubintry/AndroidUiWidget
 [result]: https://android-arsenal.com/result?level=14
+[readme_cn]:https://github.com/RubinTry/AndroidUiWidget/blob/master/README_CN.md
