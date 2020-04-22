@@ -30,4 +30,5 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation project(path: ':widget')
     implementation project(path: ':dialog')
+//    implementation 'cn.rubintry.widget:dialog:1.0.0'
 }
