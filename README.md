@@ -6,13 +6,13 @@
 ## Documentation
 
 ### Dialog
-
+* IOSMessageDialog
 
 
 
 ## Get start
 
-### How to use?
+## How to use?
 
 
 
