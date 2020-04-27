@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvIosBottomItem"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:text="data"
+    android:textSize="16sp"
+    android:textColor="@color/txtColor"
+    android:gravity="center"
+    android:background="@drawable/bg_ripple_ios_bottom_list_item"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="10dp"></TextView>

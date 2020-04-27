@@ -2,9 +2,14 @@ package cn.rubintry.dialog.ios;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -15,6 +20,7 @@ import cn.rubintry.dialog.base.BaseClickListener;
 import cn.rubintry.dialog.base.IBottomDialogBuilder;
 import cn.rubintry.dialog.base.IDialog;
 import cn.rubintry.dialog.base.IDialogBuilder;
+import cn.rubintry.dialog.ios.adapter.BottomListAdapter;
 
 
 /**
@@ -22,10 +28,16 @@ import cn.rubintry.dialog.base.IDialogBuilder;
  *  底部弹出式列表弹窗(IOS风格)
  */
 public class IOSBottomListDialog extends BaseBottomDialog {
+    private OnItemClickListener onItemClickListener;
     private Drawable drawable;
     private List<String> messageList;
     private Integer itemTextSize;
     private Integer itemTextColor;
+    private BottomListAdapter bottomListAdapter;
+
+    private RecyclerView rvBottomList;
+    private TextView tvCancel;
+
     protected IOSBottomListDialog(@NonNull Context context) {
         super(context);
     }
@@ -46,6 +58,7 @@ public class IOSBottomListDialog extends BaseBottomDialog {
         this.width = builder.width;
         this.height = builder.height;
         this.drawable = builder.drawable;
+        this.onItemClickListener = builder.onItemClickListener;
     }
 
 
@@ -54,6 +67,33 @@ public class IOSBottomListDialog extends BaseBottomDialog {
     @Override
     public Drawable setDrawable() {
         return drawable;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        rvBottomList = findViewById(R.id.rvBottomList);
+        tvCancel = findViewById(R.id.tvCancel);
+        bottomListAdapter = new BottomListAdapter(messageList);
+        rvBottomList.setLayoutManager(new LinearLayoutManager(context));
+        rvBottomList.setNestedScrollingEnabled(false);
+        rvBottomList.setAdapter(bottomListAdapter);
+        bottomListAdapter.setOnItemClickListener(new BottomListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(String content) {
+                if(onItemClickListener != null){
+                    onItemClickListener.onItemClick(content);
+                }
+                IOSBottomListDialog.this.cancel();
+            }
+        });
+
+        tvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IOSBottomListDialog.this.cancel();
+            }
+        });
     }
 
     @Override
@@ -165,6 +205,6 @@ public class IOSBottomListDialog extends BaseBottomDialog {
         void onCancel();
 
 
-        void onItemClick();
+        void onItemClick(String content);
     }
 }

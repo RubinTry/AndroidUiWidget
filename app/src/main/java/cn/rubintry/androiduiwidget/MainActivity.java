@@ -60,52 +60,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initDialog() {
-        dialog = new IOSMessageDialog.Builder(this)
-                .setCancelable(true)
-                .setMessage("这是信息")
-                .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
-                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
-                    @Override
-                    public void onConfirm() {
-
-                    }
-
-                    @Override
-                    public void onCancel() {
-
-                    }
-                })
-                .create();
-
-        dialog.show();
-
-//        List<String> list = new ArrayList<>();
-//        for (int i = 0; i < 20; i++) {
-//            list.add(i + "");
-//        }
-//
-//        bottomDialog = new IOSBottomListDialog.Builder(this)
+//        dialog = new IOSMessageDialog.Builder(this)
 //                .setCancelable(true)
-//                .setList(list)
-//                .setCancelListener(null)
-//                .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
-//                    @Override
-//                    public void onCancel() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onItemClick() {
-//
-//                    }
-//
+//                .setMessage("这是信息")
+//                .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
+//                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
 //                    @Override
 //                    public void onConfirm() {
 //
 //                    }
-//                }).create();
 //
-//        bottomDialog.show();
+//                    @Override
+//                    public void onCancel() {
+//
+//                    }
+//                })
+//                .create();
+//
+//        dialog.show();
+
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            list.add(i + "");
+        }
+
+        bottomDialog = new IOSBottomListDialog.Builder(this)
+                .setCancelable(true)
+                .setList(list)
+                .setCancelListener(null)
+                .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onItemClick(String content) {
+                        
+                    }
+
+                    @Override
+                    public void onConfirm() {
+
+                    }
+                }).create();
+
+        bottomDialog.show();
     }
 
     private void initRecyclerView() {

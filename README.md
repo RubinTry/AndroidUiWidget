@@ -20,19 +20,66 @@ maven
    <dependency>
 	<groupId>cn.rubintry.widget</groupId>
 	<artifactId>dialog</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<type>pom</type>
    </dependency>
 ```
 
 gradle
 ```groovy
-implementation 'cn.rubintry.widget:dialog:1.0.0'
+implementation 'cn.rubintry.widget:dialog:1.0.2'
 ```
 
 
 ## How to use?
 
+```java
+   dialog = new IOSMessageDialog.Builder(this)
+                .setCancelable(true)
+                .setMessage("Your message")
+                .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
+                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
+                    @Override
+                    public void onConfirm() {
+
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+                })
+                .create();
+```
+
+```java
+    List<String> list = new ArrayList<>();
+    for (int i = 0; i < 5; i++) {
+        list.add(i + "");
+    }
+    bottomDialog = new IOSBottomListDialog.Builder(this)
+                .setCancelable(true)
+                .setList(list)
+                .setCancelListener(null)
+                .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onItemClick(String content) {
+                        
+                    }
+
+                    @Override
+                    public void onConfirm() {
+
+                    }
+                }).create();
+
+        bottomDialog.show();
+```
 
 
 ## License
