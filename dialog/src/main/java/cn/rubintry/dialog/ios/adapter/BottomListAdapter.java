@@ -44,7 +44,7 @@ public class BottomListAdapter extends RecyclerView.Adapter<BottomListAdapter.Bo
             @Override
             public void onClick(View v) {
                 if(onItemClickListener != null){
-                    onItemClickListener.onItemClick(dataList.get(position));
+                    onItemClickListener.onItemClick(dataList.get(position) , position);
                 }
             }
         });
@@ -67,8 +67,9 @@ public class BottomListAdapter extends RecyclerView.Adapter<BottomListAdapter.Bo
 
         /**
          * item点击回调
-         * @param content
+         * @param content  文本内容
+         * @param position  点击位置
          */
-        void onItemClick(String content);
+        void onItemClick(String content , int position);
     }
 }

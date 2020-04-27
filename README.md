@@ -70,8 +70,8 @@ implementation 'cn.rubintry.widget:dialog:1.0.2'
                     }
 
                     @Override
-                    public void onItemClick(String content) {
-                        
+                    public void onItemClick(String content , int position) {
+
                     }
 
                     @Override

@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onItemClick(String content) {
+                    public void onItemClick(String content , int position) {
 
                     }
 

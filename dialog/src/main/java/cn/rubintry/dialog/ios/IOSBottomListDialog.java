@@ -80,12 +80,13 @@ public class IOSBottomListDialog extends BaseBottomDialog {
         rvBottomList.setAdapter(bottomListAdapter);
         bottomListAdapter.setOnItemClickListener(new BottomListAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(String content) {
+            public void onItemClick(String content, int position) {
                 if(onItemClickListener != null){
-                    onItemClickListener.onItemClick(content);
+                    onItemClickListener.onItemClick(content , position);
                 }
                 IOSBottomListDialog.this.cancel();
             }
+
         });
 
         tvCancel.setOnClickListener(new View.OnClickListener() {
@@ -205,6 +206,6 @@ public class IOSBottomListDialog extends BaseBottomDialog {
         void onCancel();
 
 
-        void onItemClick(String content);
+        void onItemClick(String content , int position);
     }
 }
