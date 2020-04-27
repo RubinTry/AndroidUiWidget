@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onItemClick(String content) {
-                        
+
                     }
 
                     @Override

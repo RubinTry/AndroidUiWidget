@@ -50,6 +50,8 @@ implementation 'cn.rubintry.widget:dialog:1.0.2'
                     }
                 })
                 .create();
+
+    dialog.show();
 ```
 
 ```java
