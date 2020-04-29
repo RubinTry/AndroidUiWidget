@@ -80,31 +80,31 @@ public class MainActivity extends AppCompatActivity {
 
 //        dialog.show();
 //
-//        List<String> list = new ArrayList<>();
-//        for (int i = 0; i < 5; i++) {
-//            list.add(i + "");
-//        }
-//
-//        bottomDialog = new IOSBottomListDialog.Builder(this)
-//                .setCancelable(true)
-//                .setList(list)
-//                .setCancelListener(null)
-//                .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
-//                    @Override
-//                    public void onCancel() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onItemClick(String content , int position) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onConfirm() {
-//
-//                    }
-//                }).create();
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            list.add(i + "");
+        }
+
+        bottomDialog = new IOSBottomListDialog.Builder(this)
+                .setCancelable(true)
+                .setList(list)
+                .setCancelListener(null)
+                .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onItemClick(String content , int position) {
+                        Toast.makeText(MainActivity.this, "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onConfirm() {
+
+                    }
+                }).create();
 //
 //        bottomDialog.show();
     }
@@ -130,5 +130,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void tips(View view) {
         dialog.show();
+    }
+
+    public void bottomList(View view) {
+        bottomDialog.show();
     }
 }

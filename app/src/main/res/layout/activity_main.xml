@@ -8,4 +8,10 @@
         android:layout_height="wrap_content"
         android:text="提示"
         android:onClick="tips"></Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="底部列表"
+        android:onClick="bottomList"></Button>
 </LinearLayout>
