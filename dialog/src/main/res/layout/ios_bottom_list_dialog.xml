@@ -9,6 +9,8 @@
         android:id="@+id/rvBottomList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:overScrollMode="never"></androidx.recyclerview.widget.RecyclerView>
 
     <TextView
@@ -17,10 +19,11 @@
         android:layout_height="54dp"
         android:text="取消"
         android:textSize="16sp"
-        android:textColor="@color/txtColor"
+        android:textColor="@color/txtBlue"
         android:gravity="center"
         android:background="@drawable/shape_cancel_btn"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"></TextView>
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"></TextView>
 </LinearLayout>

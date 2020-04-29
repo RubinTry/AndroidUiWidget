@@ -59,6 +59,7 @@ public class IOSBottomListDialog extends BaseBottomDialog {
         this.height = builder.height;
         this.drawable = builder.drawable;
         this.onItemClickListener = builder.onItemClickListener;
+        this.context = builder.contextWeakReference.get();
     }
 
 
@@ -74,7 +75,7 @@ public class IOSBottomListDialog extends BaseBottomDialog {
         super.onCreate(savedInstanceState);
         rvBottomList = findViewById(R.id.rvBottomList);
         tvCancel = findViewById(R.id.tvCancel);
-        bottomListAdapter = new BottomListAdapter(messageList);
+        bottomListAdapter = new BottomListAdapter(context , messageList);
         rvBottomList.setLayoutManager(new LinearLayoutManager(context));
         rvBottomList.setNestedScrollingEnabled(false);
         rvBottomList.setAdapter(bottomListAdapter);

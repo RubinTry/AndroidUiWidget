@@ -23,14 +23,14 @@ maven
    <dependency>
 	<groupId>cn.rubintry.widget</groupId>
 	<artifactId>dialog</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<type>pom</type>
    </dependency>
 ```
 
 gradle
 ```groovy
-implementation 'cn.rubintry.widget:dialog:1.0.2'
+implementation 'cn.rubintry.widget:dialog:1.0.3'
 ```
 
 
@@ -59,10 +59,10 @@ implementation 'cn.rubintry.widget:dialog:1.0.2'
 
 ```java
     List<String> list = new ArrayList<>();
-    for (int i = 0; i < 5; i++) {
-        list.add(i + "");
-    }
-    bottomDialog = new IOSBottomListDialog.Builder(this)
+        list.add("男");
+        list.add("女");
+        list.add("不显示");
+        bottomDialog = new IOSBottomListDialog.Builder(this)
                 .setCancelable(true)
                 .setList(list)
                 .setCancelListener(null)
@@ -74,7 +74,7 @@ implementation 'cn.rubintry.widget:dialog:1.0.2'
 
                     @Override
                     public void onItemClick(String content , int position) {
-
+                        Toast.makeText(MainActivity.this, content, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

@@ -43,7 +43,7 @@ dependencies {
 def siteUrl = 'https://github.com/RubinTry/AndroidUiWidget.git'                        // #CONFIG# // project homepage
 def gitUrl = 'git@github.com:RubinTry/AndroidUiWidget.git'                     // #CONFIG# // project git
 group = "cn.rubintry.widget"
-version = "1.0.2"//定义版本标识
+version = "1.0.3"//定义版本标识
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters

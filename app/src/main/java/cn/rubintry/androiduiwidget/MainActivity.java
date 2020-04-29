@@ -81,10 +81,9 @@ public class MainActivity extends AppCompatActivity {
 //        dialog.show();
 //
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            list.add(i + "");
-        }
-
+        list.add("男");
+        list.add("女");
+        list.add("不显示");
         bottomDialog = new IOSBottomListDialog.Builder(this)
                 .setCancelable(true)
                 .setList(list)
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onItemClick(String content , int position) {
-                        Toast.makeText(MainActivity.this, "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, content, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
