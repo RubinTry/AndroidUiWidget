@@ -39,17 +39,17 @@ implementation 'cn.rubintry.widget:dialog:1.0.3'
 ```java
    dialog = new IOSMessageDialog.Builder(this)
                 .setCancelable(true)
-                .setMessage("Your message")
+                .setMessage("这是信息")
                 .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
                 .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
                     @Override
                     public void onConfirm() {
-
+                        Toast.makeText(MainActivity.this, "点击确定", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onCancel() {
-
+                        Toast.makeText(MainActivity.this, "点击取消", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .create();
