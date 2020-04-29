@@ -11,6 +11,8 @@
 * [IOSBottomListDialog][readme_ios_bottom_list_dialog]
 
 
+<!--![](https://github.com/scwang90/SmartRefreshLayout/raw/master/art/gif_practive_weibo.gif)-->
+
 
 ## Get start
 

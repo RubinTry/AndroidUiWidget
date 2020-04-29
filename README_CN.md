@@ -35,7 +35,7 @@ implementation 'cn.rubintry.widget:dialog:1.0.2'
 ```java
    dialog = new IOSMessageDialog.Builder(this)
                 .setCancelable(true)
-                .setMessage("Your message")
+                .setMessage("你要提示的消息")
                 .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
                 .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
                     @Override

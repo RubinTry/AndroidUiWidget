@@ -1,40 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cn.rubintry.widget.elastic.ElasticView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/esvContainer"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nslContent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:requiresFadingEdge="none"
-        android:overScrollMode="never">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imgWorkerLine"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/checking"></ImageView>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTest"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
-
-</cn.rubintry.widget.elastic.ElasticView>
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提示"
+        android:onClick="tips"></Button>
+</LinearLayout>
