@@ -2,7 +2,7 @@
 ## [中文文档][readme_cn]
 ## About
 
-**[AndroidUiWidget][readme]**:watermelon: is a rich UI widget library,it can greatly improve your development efficiency.:watermelon:
+[AndroidUiWidget][readme]is a rich UI widget library,it can greatly improve your development efficiency.
 
 ## Documentation
 
