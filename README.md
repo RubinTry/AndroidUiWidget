@@ -2,7 +2,7 @@
 ## [中文文档][readme_cn]
 ## About
 
-[<h3>AndroidUiWidget</h3>][readme] is a rich UI widget library,it can greatly improve your development efficiency.
+[<strong>AndroidUiWidget</strong>][readme] is a rich UI widget library,it can greatly improve your development efficiency.
 
 ## Documentation
 
