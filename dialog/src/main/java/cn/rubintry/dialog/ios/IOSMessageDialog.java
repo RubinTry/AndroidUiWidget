@@ -187,7 +187,6 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         /**
          *  确定
          */
-        @Override
         void onConfirm();
 
         /**

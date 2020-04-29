@@ -5,10 +5,10 @@ package cn.rubintry.dialog.base;
  * 默认的按钮点击事件
  */
 public interface BaseClickListener {
-    /**
-     * 确定
-     */
-    void onConfirm();
+//    /**
+//     * 确定
+//     */
+//    void onConfirm();
 
 
     /**

@@ -78,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .create();
 
-//        dialog.show();
-//
+
         List<String> list = new ArrayList<>();
         list.add("男");
         list.add("女");
@@ -99,10 +98,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, content, Toast.LENGTH_SHORT).show();
                     }
 
-                    @Override
-                    public void onConfirm() {
-
-                    }
                 }).create();
 //
 //        bottomDialog.show();

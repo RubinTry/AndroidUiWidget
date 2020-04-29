@@ -58,7 +58,7 @@ implementation 'cn.rubintry.widget:dialog:1.0.3'
 ```
 
 ```java
-    List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
         list.add("男");
         list.add("女");
         list.add("不显示");
@@ -77,10 +77,6 @@ implementation 'cn.rubintry.widget:dialog:1.0.3'
                         Toast.makeText(MainActivity.this, content, Toast.LENGTH_SHORT).show();
                     }
 
-                    @Override
-                    public void onConfirm() {
-
-                    }
                 }).create();
 
         bottomDialog.show();
