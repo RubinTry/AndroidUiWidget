@@ -7,8 +7,8 @@
 ## Documentation
 
 ### Dialog
-* IOSMessageDialog
-* IOSBottomListDialog
+* [IOSMessageDialog][readme_ios_message_dialog]
+* [IOSBottomListDialog][readme_ios_bottom_list_dialog]
 
 
 
@@ -106,3 +106,5 @@ limitations under the License.
 [auc]: https://github.com/Rubintry/AndroidUiWidget
 [result]: https://android-arsenal.com/result?level=14
 [readme_cn]:https://github.com/RubinTry/AndroidUiWidget/blob/master/README_CN.md
+[readme_ios_message_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_MESSAGE_DIALOG.md
+[readme_ios_bottom_list_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_BOTTOM_LIST_DIALOG.md
