@@ -39,6 +39,7 @@ implementation 'cn.rubintry.widget:dialog:1.0.3'
 
 ## How to use?
 
+### IOSMessageDialog
 ```java
    dialog = new IOSMessageDialog.Builder(this)
                 .setCancelable(true)
@@ -59,6 +60,8 @@ implementation 'cn.rubintry.widget:dialog:1.0.3'
 
     dialog.show();
 ```
+
+### IOSBottomListDialog
 
 ```java
         List<String> list = new ArrayList<>();
