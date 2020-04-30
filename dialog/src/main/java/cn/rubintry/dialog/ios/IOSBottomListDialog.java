@@ -158,7 +158,7 @@ public class IOSBottomListDialog extends BaseBottomDialog {
         }
 
         @Override
-        public IDialogBuilder setMessageTextSize(int spValue) {
+        public Builder setMessageTextSize(int spValue) {
             return null;
         }
 
@@ -192,7 +192,7 @@ public class IOSBottomListDialog extends BaseBottomDialog {
 
 
         @Override
-        public IDialog create() {
+        public IOSBottomListDialog create() {
             if(list == null || list.size() == 0){
                 throw new IllegalArgumentException("Please add some items!!!");
             }

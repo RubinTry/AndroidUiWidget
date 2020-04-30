@@ -5,7 +5,7 @@
 
 ## 特性
 * 支持Androidx
-* 简洁、漂亮、易扩展
+* 简洁、美观、易扩展
 
 ## 组件列表
 ### Dialog
@@ -22,14 +22,14 @@ maven
    <dependency>
 	<groupId>cn.rubintry.widget</groupId>
 	<artifactId>dialog</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.4</version>
 	<type>pom</type>
    </dependency>
 ```
 
 gradle
 ```groovy
-implementation 'cn.rubintry.widget:dialog:1.0.2'
+implementation 'cn.rubintry.widget:dialog:1.0.4'
 ```
 
 

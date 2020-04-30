@@ -26,14 +26,14 @@ maven
    <dependency>
 	<groupId>cn.rubintry.widget</groupId>
 	<artifactId>dialog</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<type>pom</type>
    </dependency>
 ```
 
 gradle
 ```groovy
-implementation 'cn.rubintry.widget:dialog:1.0.3'
+implementation 'cn.rubintry.widget:dialog:1.0.4'
 ```
 
 

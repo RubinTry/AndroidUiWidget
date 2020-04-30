@@ -121,57 +121,57 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         }
 
         @Override
-        public IDialogBuilder setTextColor(Integer textColor) {
+        public Builder setTextColor(Integer textColor) {
             this.textColor = textColor;
             return this;
         }
 
         @Override
-        public IDialogBuilder setMessage(String message) {
+        public Builder setMessage(String message) {
             this.message = message;
             return this;
         }
 
         @Override
-        public IDialogBuilder setMessageTextSize(int textSize) {
+        public Builder setMessageTextSize(int textSize) {
             this.textSize = textSize;
             return this;
         }
 
 
         @Override
-        public IDialogBuilder setSize(int width, int height) {
+        public Builder setSize(int width, int height) {
             this.width = width;
             this.height = height;
             return this;
         }
 
         @Override
-        public IDialogBuilder setDrawable(Drawable drawable) {
+        public Builder setDrawable(Drawable drawable) {
             this.drawable = drawable;
             return this;
         }
 
         @Override
-        public IDialogBuilder setTitle(String title) {
+        public Builder setTitle(String title) {
             this.title = title;
             return this;
         }
 
         @Override
-        public IDialogBuilder setCancelable(boolean cancelable) {
+        public Builder setCancelable(boolean cancelable) {
             this.cancelable = cancelable;
             return this;
         }
 
         @Override
-        public IDialogBuilder setCancelListener(OnCancelListener cancelListener) {
+        public Builder setCancelListener(OnCancelListener cancelListener) {
             this.onCancelListener = cancelListener;
             return this;
         }
 
         @Override
-        public IDialogBuilder setOnButtonClickListener(BaseClickListener listener) {
+        public Builder setOnButtonClickListener(BaseClickListener listener) {
             this.onButtonClickListener = (OnButtonClickListener) listener;
             return this;
         }
