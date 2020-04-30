@@ -99,28 +99,9 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }).create();
-//
-//        bottomDialog.show();
+
     }
 
-    private void initRecyclerView() {
-//        dataList = new ArrayList<>();
-//        rvTest.setLayoutManager(new LinearLayoutManager(this));
-//        rvTest.setNestedScrollingEnabled(false);
-//        testListAdapter = new TestListAdapter(dataList);
-//        rvTest.setAdapter(testListAdapter);
-//        testListAdapter.setOnItemClickListener(new TestListAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick() {
-//                Toast.makeText(MainActivity.this, "点击了", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        for (int i = 0; i < 20; i++) {
-//            dataList.add(new TestDataModel(i + ""));
-//        }
-//
-//        testListAdapter.setDataList(dataList);
-    }
 
     public void tips(View view) {
         dialog.show();
