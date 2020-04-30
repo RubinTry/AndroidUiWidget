@@ -7,7 +7,8 @@
 * 支持Androidx
 * 简洁、漂亮、易扩展
 
-### Dialog弹窗
+### 组件列表
+#### Dialog
 * [IOSMessageDialog][readme_ios_message_dialog]
 * [IOSBottomListDialog][readme_ios_bottom_list_dialog]
 
@@ -15,9 +16,7 @@
 
 ## 开始使用
 
-### 组件列表
-
-#### Dialog
+### Dialog
 maven
 ```xml
    <dependency>
