@@ -7,8 +7,8 @@
 * 支持Androidx
 * 简洁、漂亮、易扩展
 
-### 组件列表
-#### Dialog
+## 组件列表
+### Dialog
 * [IOSMessageDialog][readme_ios_message_dialog]
 * [IOSBottomListDialog][readme_ios_bottom_list_dialog]
 
