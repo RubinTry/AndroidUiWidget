@@ -4,7 +4,9 @@
 
 [<font size="5">AndroidUiWidget</font>][readme] is a rich UI widget library,it can greatly improve your development efficiency.
 
-## Documentation
+## Feature
+* Support Androidx
+* Concise and beautiful and easy to expand
 
 ### Dialog
 * [IOSMessageDialog][readme_ios_message_dialog]

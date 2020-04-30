@@ -3,7 +3,9 @@
 
 [<font size="5">AndroidUiWidget</font>][readme] 是一个丰富的UI组件库, 它能够使你的开发效率大大提升。
 
-## 使用说明
+## 特性
+* 支持Androidx
+* 简洁、漂亮、易扩展
 
 ### Dialog弹窗
 * [IOSMessageDialog][readme_ios_message_dialog]
