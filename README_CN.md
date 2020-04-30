@@ -15,7 +15,9 @@
 
 ## 开始使用
 
-### Dialog
+### 组件列表
+
+#### Dialog
 maven
 ```xml
    <dependency>
