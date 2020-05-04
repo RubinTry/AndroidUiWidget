@@ -15,6 +15,8 @@
 * [IOSMessageDialog][readme_ios_message_dialog]
 * [IOSBottomListDialog][readme_ios_bottom_list_dialog]
 
+### Elastic
+* [ElasticView][readme_elastic_view]
 
 ![](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/IOS_MESSAGE_DIALOG.gif)
 ![](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/IOS_BOTTOM_LIST_DIALOG.gif)
@@ -115,3 +117,4 @@ limitations under the License.
 [readme_cn]:https://github.com/RubinTry/AndroidUiWidget/blob/master/README_CN.md
 [readme_ios_message_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_MESSAGE_DIALOG.md
 [readme_ios_bottom_list_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_BOTTOM_LIST_DIALOG.md
+[readme_elastic_view]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_ELASTIC_VIEW.md

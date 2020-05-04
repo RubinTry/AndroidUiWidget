@@ -1,5 +1,6 @@
 package cn.rubintry.androiduiwidget;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.NestedScrollView;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,8 +21,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import cn.rubintry.androiduiwidget.adapter.TestListAdapter;
+import cn.rubintry.androiduiwidget.adapter.WidgetTypeAdapter;
+import cn.rubintry.androiduiwidget.base.BaseActivity;
 import cn.rubintry.androiduiwidget.model.TestDataModel;
+import cn.rubintry.androiduiwidget.view.dialog.DialogActivity;
+import cn.rubintry.androiduiwidget.view.elastic.ElasticActivity;
 import cn.rubintry.dialog.base.IDialog;
 import cn.rubintry.dialog.ios.IOSBottomListDialog;
 import cn.rubintry.dialog.ios.IOSMessageDialog;
@@ -31,83 +38,51 @@ import cn.rubintry.widget.elastic.ScreenUtils;
 /**
  * @author logcat
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-//    private ElasticView esvContainer;
-//    private ImageView imgWorkerLine;
-//    private RecyclerView rvTest;
-//    private List<TestDataModel> dataList;
-//    private TestListAdapter testListAdapter;
-//    private NestedScrollView nslContent;
-    private IDialog dialog;
-    private IDialog bottomDialog;
+    @BindView(R.id.rvWidgetTypeList)
+    RecyclerView rvWidgetTypeList;
+    private WidgetTypeAdapter widgetTypeAdapter;
+    private List<String> widgetTypeList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-//        imgWorkerLine = findViewById(R.id.imgWorkerLine);
-//        esvContainer = findViewById(R.id.esvContainer);
-//        rvTest = findViewById(R.id.rvTest);
-//        nslContent = findViewById(R.id.nslContent);
-//        initRecyclerView();
-        initDialog();
-//        esvContainer.setHeader(imgWorkerLine)
-//        .setOnReadyPullListener(new OnReadyPullListener() {
-//            @Override
-//            public boolean isReady() {
-//                return nslContent.getScrollY() == 0;
-//            }
-//        });
+        initRecycler();
     }
 
-    private void initDialog() {
-        dialog = new IOSMessageDialog.Builder(this)
-                .setCancelable(true)
-                .setMessage("这是信息")
-                .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
-                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
-                    @Override
-                    public void onConfirm() {
-                        Toast.makeText(MainActivity.this, "点击确定", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onCancel() {
-                        Toast.makeText(MainActivity.this, "点击取消", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .create();
-
-
-        List<String> list = new ArrayList<>();
-        list.add("男");
-        list.add("女");
-        list.add("不显示");
-        bottomDialog = new IOSBottomListDialog.Builder(this)
-                .setCancelable(true)
-                .setList(list)
-                .setCancelListener(null)
-                .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
-                    @Override
-                    public void onCancel() {
-
-                    }
-
-                    @Override
-                    public void onItemClick(String content , int position) {
-                        Toast.makeText(MainActivity.this, content, Toast.LENGTH_SHORT).show();
-                    }
-
-                }).create();
-
+    @Override
+    protected int setLayout() {
+        return R.layout.activity_main;
     }
 
-
-    public void tips(View view) {
-        dialog.show();
+    private void initRecycler() {
+        widgetTypeList = new ArrayList<>();
+        widgetTypeList.add("Dialog");
+        widgetTypeList.add("ElasticView");
+        rvWidgetTypeList.setLayoutManager(new LinearLayoutManager(this));
+        rvWidgetTypeList.setNestedScrollingEnabled(false);
+        widgetTypeAdapter = new WidgetTypeAdapter(widgetTypeList);
+        rvWidgetTypeList.setAdapter(widgetTypeAdapter);
+        widgetTypeAdapter.setOnItemClickListener(listener);
     }
 
-    public void bottomList(View view) {
-        bottomDialog.show();
-    }
+    private WidgetTypeAdapter.OnItemClickListener listener = new WidgetTypeAdapter.OnItemClickListener() {
+        @Override
+        public void onItemClick(String data , int position) {
+            switch (position){
+                case 0:
+                    //Dialog
+                    startActivity(new Intent(MainActivity.this , DialogActivity.class));
+                    break;
+                case 1:
+                    //ElasticView
+                    startActivity(new Intent(MainActivity.this , ElasticActivity.class));
+                    break;
+                    default:
+                        break;
+            }
+        }
+    };
+
 }
