@@ -62,10 +62,10 @@ implementation 'cn.rubintry.widget:dialog:1.0.4'
 
 ```java
     List<String> list = new ArrayList<>();
-    for (int i = 0; i < 5; i++) {
-        list.add(i + "");
-    }
-    bottomDialog = new IOSBottomListDialog.Builder(this)
+        list.add("男");
+        list.add("女");
+        list.add("不显示");
+        bottomDialog = new IOSBottomListDialog.Builder(this)
                 .setCancelable(true)
                 .setList(list)
                 .setCancelListener(null)
@@ -77,13 +77,9 @@ implementation 'cn.rubintry.widget:dialog:1.0.4'
 
                     @Override
                     public void onItemClick(String content , int position) {
-
+                        Toast.makeText(MainActivity.this, content, Toast.LENGTH_SHORT).show();
                     }
 
-                    @Override
-                    public void onConfirm() {
-
-                    }
                 }).create();
 
         bottomDialog.show();
