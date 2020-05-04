@@ -3,7 +3,7 @@
 
 [<font size="5">AndroidUiWidget</font>][readme] 是一个丰富的UI组件库, 它能够使你的开发效率大大提升。
 
-## 特性
+## 特点
 * 支持Androidx
 * 简洁、美观、易扩展
 
@@ -23,15 +23,32 @@ maven
    <dependency>
 	<groupId>cn.rubintry.widget</groupId>
 	<artifactId>dialog</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<type>pom</type>
    </dependency>
 ```
 
 gradle
 ```groovy
-implementation 'cn.rubintry.widget:dialog:1.0.4'
+implementation 'cn.rubintry.widget:dialog:1.0.5'
 ```
+
+### Widget
+maven
+```xml
+   <dependency>
+	<groupId>cn.rubintry.widget</groupId>
+	<artifactId>widget</artifactId>
+	<version>1.0.5</version>
+	<type>pom</type>
+   </dependency>
+```
+
+gradle
+```groovy
+implementation 'cn.rubintry.widget:widget:1.0.5'
+```
+
 
 
 ## 如何使用？
