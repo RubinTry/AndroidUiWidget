@@ -20,5 +20,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * 设置布局
+     * @return
+     */
     protected abstract int setLayout();
 }

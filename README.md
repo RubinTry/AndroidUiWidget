@@ -9,6 +9,7 @@
 ## Feature
 * Support Androidx
 * Concise and beautiful and easy to expand
+* Support pull down zoom in(ElasticView)
 
 ## Widget List
 ### Dialog

@@ -6,13 +6,14 @@
 ## 特点
 * 支持Androidx
 * 简洁、美观、易扩展
+* 支持下拉放大(ElasticView)
 
 ## 组件列表
 ### Dialog
 * [IOSMessageDialog][readme_ios_message_dialog]
 * [IOSBottomListDialog][readme_ios_bottom_list_dialog]
 
-### Elastic
+### Elastic（下拉放大布局）
 * [ElasticView][readme_elastic_view]
 
 ## 开始使用
