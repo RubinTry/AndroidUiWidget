@@ -18,8 +18,6 @@
 ### Elastic
 * [ElasticView][readme_elastic_view]
 
-![](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/IOS_MESSAGE_DIALOG.gif)
-![](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/IOS_BOTTOM_LIST_DIALOG.gif)
 
 
 ## Get start
@@ -81,6 +79,9 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
     dialog.show();
 ```
 
+![](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/IOS_MESSAGE_DIALOG.gif)
+
+
 ### IOSBottomListDialog
 
 ```java
@@ -107,6 +108,7 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 
         bottomDialog.show();
 ```
+![](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/IOS_BOTTOM_LIST_DIALOG.gif)
 
 
 ## License
