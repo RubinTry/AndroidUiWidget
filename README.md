@@ -2,7 +2,8 @@
 ## [中文文档][readme_cn]
 
 ![logo](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/logo.png)
-## About
+
+## Introduction
 
 [<font size="5">AndroidUiWidget</font>][readme] is a rich UI widget library,it can greatly improve your development efficiency.
 
