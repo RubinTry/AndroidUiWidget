@@ -1,7 +1,7 @@
 
 ## [中文文档][readme_cn]
 
-![logo](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/logo.png)
+![logo](https://gitee.com/rubintry/AndroidUiWidget/blob/master/resource/logo.png)
 
 ## Introduction
 
