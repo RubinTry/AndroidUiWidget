@@ -23,7 +23,7 @@
 
 ## Widget's show
 |IOSMessageDialog|IOSBottomListDialog|ElasticView|
-|:---:|:---:|
+|:---:|:---:|:---|
 |![](https://rubintry.cn/IOS_MESSAGE_DIALOG.gif)|![](https://rubintry.cn/IOS_BOTTOM_LIST_DIALOG.gif)|
 |![](https://rubintry.cn/ELASTIC_VIEW.gif)|
 
