@@ -19,6 +19,12 @@
 ### Elastic（下拉放大布局）
 * [ElasticView][readme_elastic_view]
 
+
+## 效果图
+|IOSMessageDialog|IOSBottomListDialog|
+|:---:|:---:|
+|![](https://rubintry.cn/IOS_MESSAGE_DIALOG.gif)|![](https://rubintry.cn/IOS_BOTTOM_LIST_DIALOG.gif)|
+
 ## 开始使用
 
 ### Dialog

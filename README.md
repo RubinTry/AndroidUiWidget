@@ -81,7 +81,7 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
     dialog.show();
 ```
 
-![](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/IOS_MESSAGE_DIALOG.gif)
+![](https://rubintry.cn/IOS_MESSAGE_DIALOG.gif)
 
 
 ### IOSBottomListDialog
@@ -110,7 +110,7 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 
         bottomDialog.show();
 ```
-![](https://github.com/RubinTry/AndroidUiWidget/blob/master/resource/IOS_BOTTOM_LIST_DIALOG.gif)
+![](https://rubintry.cn/IOS_BOTTOM_LIST_DIALOG.gif)
 
 
 ## License
