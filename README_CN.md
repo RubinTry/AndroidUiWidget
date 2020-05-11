@@ -50,6 +50,8 @@ maven
    </dependency>
 ```
 
+注意: 如果你想使用ElasticView或者其他控件, 你需要引入Widget这个库.
+
 gradle
 ```groovy
 implementation 'cn.rubintry.widget:widget:1.0.5'

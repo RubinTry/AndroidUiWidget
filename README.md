@@ -66,6 +66,9 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 ```
 
 
+Notice:If you want to use ElasticView or other widgets, you should introduce the Widget Library.
+
+
 ## How to use?
 
 ### IOSMessageDialog
