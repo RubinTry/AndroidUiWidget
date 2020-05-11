@@ -29,7 +29,7 @@
 
 |[ElasticView][readme_elastic_view]|
 |:---:|
-|![](https://user-images.githubusercontent.com/25943524/81573366-f4f1e780-93d6-11ea-9026-e70b40d293af.png)|
+|![](https://user-images.githubusercontent.com/25943524/81596728-224e8d80-93f7-11ea-998a-e76a1870da17.gif)|
 
 
 ## Get start
