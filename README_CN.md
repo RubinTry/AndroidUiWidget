@@ -113,7 +113,7 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 
 ### ElasticView
 ```java
-    elasticView.setHeader(imgHeader)//set your header
+    elasticView.setHeader(imgHeader)//设置你的头部图片
         .setOnReadyPullListener(new OnReadyPullListener() {
             @Override
             public boolean isReady() {
