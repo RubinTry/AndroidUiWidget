@@ -11,19 +11,23 @@
 * 简洁、美观、易扩展
 * 支持下拉放大(ElasticView)
 
-## 组件列表
-### Dialog
-* [IOSMessageDialog][readme_ios_message_dialog]
-* [IOSBottomListDialog][readme_ios_bottom_list_dialog]
+<!--## 组件列表-->
+<!--### Dialog-->
+<!--* [IOSMessageDialog][readme_ios_message_dialog]-->
+<!--* [IOSBottomListDialog][readme_ios_bottom_list_dialog]-->
 
-### Elastic（下拉放大布局）
-* [ElasticView][readme_elastic_view]
+<!--### Elastic（下拉放大布局）-->
+<!--* [ElasticView][readme_elastic_view]-->
 
 
-## 效果图
-|IOSMessageDialog|IOSBottomListDialog|
+## 效果展示
+|[IOSMessageDialog][readme_ios_message_dialog]|[IOSBottomListDialog][readme_ios_bottom_list_dialog]|
 |:---:|:---:|
 |![](https://rubintry.cn/IOS_MESSAGE_DIALOG.gif)|![](https://rubintry.cn/IOS_BOTTOM_LIST_DIALOG.gif)|
+
+|[ElasticView][readme_elastic_view]|
+|:---:|
+|![](https://rubintry.cn/ELASTIC_VIEW.gif)|
 
 ## 开始使用
 
@@ -156,5 +160,7 @@ limitations under the License.
 [readme_cn]:https://github.com/RubinTry/AndroidUiWidget/blob/master/README_CN.md
 [readme_ios_message_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_MESSAGE_DIALOG.md
 [readme_ios_bottom_list_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_BOTTOM_LIST_DIALOG.md
+
+[readme_elastic_view]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_ELASTIC_VIEW.md
 
 [readme_elastic_view]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_ELASTIC_VIEW.md
