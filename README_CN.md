@@ -15,11 +15,12 @@
 ## 效果展示
 |[IOSMessageDialog][readme_ios_message_dialog]|[IOSBottomListDialog][readme_ios_bottom_list_dialog]|
 |:---:|:---:|
-|![](https://rubintry.cn/IOS_MESSAGE_DIALOG.gif)|![](https://rubintry.cn/IOS_BOTTOM_LIST_DIALOG.gif)|
+|![](https://user-images.githubusercontent.com/25943524/81573478-236fc280-93d7-11ea-9778-885c0cce20c5.gif)|![](https://user-images.githubusercontent.com/25943524/81573566-3aaeb000-93d7-11ea-91ed-1fea529f6442.gif)|
 
 |[ElasticView][readme_elastic_view]|
 |:---:|
-|![](https://rubintry.cn/ELASTIC_VIEW.gif)|
+|![](https://user-images.githubusercontent.com/25943524/81573366-f4f1e780-93d6-11ea-9026-e70b40d293af.png)|
+
 
 ## 开始使用
 
@@ -190,3 +191,7 @@ limitations under the License.
 [readme_ios_bottom_list_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/cn/README_IOS_BOTTOM_LIST_DIALOG_CN.md
 
 [readme_elastic_view]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/cn/README_ELASTIC_VIEW_CN.md
+
+[readme_ios_message_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/en/README_IOS_MESSAGE_DIALOG.md
+[readme_elastic_view]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/en/README_ELASTIC_VIEW.md
+[readme_ios_bottom_list_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/en/README_IOS_BOTTOM_LIST_DIALOG.md
