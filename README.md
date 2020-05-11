@@ -25,7 +25,9 @@
 |IOSMessageDialog|IOSBottomListDialog|
 |:---:|:---:|
 |![](https://rubintry.cn/IOS_MESSAGE_DIALOG.gif)|![](https://rubintry.cn/IOS_BOTTOM_LIST_DIALOG.gif)|
+
 |ElasticView|
+|:---:|
 |![](https://rubintry.cn/ELASTIC_VIEW.gif)|
 
 
