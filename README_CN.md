@@ -11,14 +11,6 @@
 * 简洁、美观、易扩展
 * 支持下拉放大(ElasticView)
 
-<!--## 组件列表-->
-<!--### Dialog-->
-<!--* [IOSMessageDialog][readme_ios_message_dialog]-->
-<!--* [IOSBottomListDialog][readme_ios_bottom_list_dialog]-->
-
-<!--### Elastic（下拉放大布局）-->
-<!--* [ElasticView][readme_elastic_view]-->
-
 
 ## 效果展示
 |[IOSMessageDialog][readme_ios_message_dialog]|[IOSBottomListDialog][readme_ios_bottom_list_dialog]|
@@ -123,7 +115,7 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
         .setOnReadyPullListener(new OnReadyPullListener() {
             @Override
             public boolean isReady() {
-                //return a suitable conditions can be pulled down
+                //返回一个合适的下拉条件
                 return nslContent.getScrollY() == 0;
             }
         });
@@ -213,8 +205,6 @@ limitations under the License.
 [result]: https://android-arsenal.com/result?level=14
 [readme_cn]:https://github.com/RubinTry/AndroidUiWidget/blob/master/README_CN.md
 [readme_ios_message_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_MESSAGE_DIALOG.md
-[readme_ios_bottom_list_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_BOTTOM_LIST_DIALOG.md
+[readme_ios_bottom_list_dialog]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_IOS_BOTTOM_LIST_DIALOG_CN.md
 
-[readme_elastic_view]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_ELASTIC_VIEW.md
-
-[readme_elastic_view]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_ELASTIC_VIEW.md
+[readme_elastic_view]:https://github.com/RubinTry/AndroidUiWidget/blob/master/doc/README_ELASTIC_VIEW_CN.md
