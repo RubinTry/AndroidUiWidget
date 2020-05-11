@@ -5,7 +5,7 @@
 
 ## Introduction
 
-[<font size="5">AndroidUiWidget</font>][readme] is a rich UI widget library,it can greatly improve your development efficiency.
+[<font size="7">AndroidUiWidget</font>][readme] is a rich UI widget library,it can greatly improve your development efficiency.
 
 ## Feature
 * Support Androidx
