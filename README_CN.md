@@ -1,10 +1,10 @@
 
+![logo](https://rubintry.cn/icon.png)
+
 ## 介绍
 
 [<font size="5">AndroidUiWidget</font>][readme] 是一个丰富的UI组件库, 它能够使你的开发效率大大提升。
 
-
-![logo](https://rubintry.cn/icon.png)
 
 ## 特点
 * 支持Androidx
