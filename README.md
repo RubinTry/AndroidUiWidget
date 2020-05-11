@@ -75,17 +75,17 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 ```java
    dialog = new IOSMessageDialog.Builder(this)
                 .setCancelable(true)
-                .setMessage("这是信息")
+                .setMessage("this is a message")
                 .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
                 .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
                     @Override
                     public void onConfirm() {
-                        Toast.makeText(MainActivity.this, "点击确定", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "click the confirm", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onCancel() {
-                        Toast.makeText(MainActivity.this, "点击取消", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "click the cancel", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .create();
@@ -99,9 +99,9 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 
 ```java
         List<String> list = new ArrayList<>();
-        list.add("男");
-        list.add("女");
-        list.add("不显示");
+        list.add("boy");
+        list.add("girl");
+        list.add("nothing");
         bottomDialog = new IOSBottomListDialog.Builder(this)
                 .setCancelable(true)
                 .setList(list)
