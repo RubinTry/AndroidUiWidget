@@ -21,6 +21,12 @@
 * [ElasticView][readme_elastic_view]
 
 
+## Widget's show
+|IOSMessageDialog|IOSBottomListDialog|
+|:---:|:---:|
+|![](https://rubintry.cn/IOS_MESSAGE_DIALOG.gif)|![](https://rubintry.cn/IOS_BOTTOM_LIST_DIALOG.gif)|
+
+
 
 ## Get start
 
@@ -81,7 +87,6 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
     dialog.show();
 ```
 
-![](https://rubintry.cn/IOS_MESSAGE_DIALOG.gif)
 
 
 ### IOSBottomListDialog
@@ -110,7 +115,6 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 
         bottomDialog.show();
 ```
-![](https://rubintry.cn/IOS_BOTTOM_LIST_DIALOG.gif)
 
 
 ## License
