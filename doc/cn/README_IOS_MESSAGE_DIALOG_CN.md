@@ -9,7 +9,7 @@
                 .setTitle("tips title");//设置你的弹窗标题
                 .setMessage("Your message") //设置你的提示消息
                 .setTextColor(ContextCompat.getColor(this , R.color.txtColor)) //设置你的文字提示的颜色
-                .setMessageTextSize(16) //设置提示信息的字体大小(spValue).
+                .setMessageTextSize(16) //设置提示信息的字体大小(sp值).
                 .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
                     @Override
                     public void onConfirm() {
