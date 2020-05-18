@@ -1,5 +1,6 @@
 package cn.rubintry.dialog.ios;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import cn.rubintry.dialog.base.IDialogBuilder;
  */
 public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickListener {
 
+    private OnClickListener negativeBtnListener;
+    private OnClickListener positiveBtnListener;
     private OnButtonClickListener onButtonClickListener;
     private String message;
     private Integer textColor;
@@ -27,6 +30,8 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
     private String title;
     private Drawable drawable;
     private LinearLayout llContainer;
+    private String positiveBtn;
+    private String negativeBtn;
 
     public IOSMessageDialog(Builder builder) {
         super(builder.contextWeakReference.get(), builder.cancelable , builder.onCancelListener);
@@ -39,6 +44,10 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         this.textColor = builder.textColor;
         this.textSize = builder.textSize;
         this.title = builder.title;
+        this.positiveBtn = builder.positiveBtn;
+        this.negativeBtn = builder.negativeBtn;
+        this.positiveBtnListener = builder.positiveBtnListener;
+        this.negativeBtnListener = builder.negativeBtnListener;
     }
 
 
@@ -63,6 +72,15 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         if(textSize != null){
             setTextSize(R.id.tv_content , textSize.intValue());
         }
+
+        if(positiveBtn != null){
+            setText(R.id.btn_confirm , positiveBtn);
+        }
+
+        if(negativeBtn != null){
+            setText(R.id.btn_cancel , negativeBtn);
+        }
+
         llContainer = findViewById(R.id.llContainer);
         llContainer.setOnClickListener(this);
     }
@@ -87,14 +105,23 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        if (onButtonClickListener == null) {
-            return;
-        }
+
         if (v.getId() == R.id.btn_confirm) {
-            onButtonClickListener.onConfirm();
+            if(onButtonClickListener != null){
+                onButtonClickListener.onConfirm();
+            }
+
+            if(positiveBtnListener != null){
+                positiveBtnListener.onClick(this);
+            }
             this.cancel();
         } else if(v.getId() == R.id.btn_cancel) {
-            onButtonClickListener.onCancel();
+            if(onButtonClickListener != null){
+                onButtonClickListener.onCancel();
+            }
+            if(negativeBtnListener != null){
+                negativeBtnListener.onClick(this);
+            }
             this.cancel();
         }else if(v.getId() == R.id.llContainer){
             Log.d("dialog", "onClick: ");
@@ -115,6 +142,10 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
         private Integer textSize;
         private OnButtonClickListener onButtonClickListener;
         private String title;
+        private OnClickListener positiveBtnListener;
+        private String positiveBtn;
+        private OnClickListener negativeBtnListener;
+        private String negativeBtn;
 
         public Builder(Context context) {
             contextWeakReference = new WeakReference<>(context);
@@ -176,6 +207,19 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
             return this;
         }
 
+        public Builder setPositiveButton(String positiveBtn , OnClickListener listener){
+            this.positiveBtnListener = (OnClickListener)listener;
+            this.positiveBtn = positiveBtn;
+            return this;
+        }
+
+
+        public Builder setNegativeButton(String negativeBtn , OnClickListener listener){
+            this.negativeBtnListener = (OnClickListener)listener;
+            this.negativeBtn = negativeBtn;
+            return this;
+        }
+
         @Override
         public IOSMessageDialog create() {
             return new IOSMessageDialog(this);
@@ -194,5 +238,10 @@ public class IOSMessageDialog extends BaseCenterDialog implements View.OnClickLi
          */
         @Override
         void onCancel();
+    }
+
+
+    public interface OnClickListener{
+        void onClick(Dialog dialog);
     }
 }

@@ -22,4 +22,24 @@
                     }
                 })
                 .create();
+                
+                
+    dialog = new IOSMessageDialog.Builder(this)
+                .setCancelable(true) //Set can cancel
+                .setMessage("this is a message") //Set your tip message
+                .setTextColor(ContextCompat.getColor(this, R.color.txtColor)) //Set your tip words' color
+                .setPositiveButton("Upgrade", new IOSMessageDialog.OnClickListener() {
+                    @Override
+                    public void onClick(Dialog dialog) {
+                        //add a confirm button and add listener.
+                    }
+
+                })
+                .setNegativeButton("Cancel", new IOSMessageDialog.OnClickListener() {
+                    @Override
+                    public void onClick(Dialog dialog) {
+                        //add a cancel button and add listener.
+                    }
+                })
+                .create();            
 ```

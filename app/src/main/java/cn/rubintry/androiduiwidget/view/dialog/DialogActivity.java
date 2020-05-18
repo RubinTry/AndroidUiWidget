@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -45,15 +46,17 @@ public class DialogActivity extends BaseActivity {
                 .setCancelable(true)
                 .setMessage("这是信息")
                 .setTextColor(ContextCompat.getColor(this, R.color.txtColor))
-                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
+                .setPositiveButton("更新", new IOSMessageDialog.OnClickListener() {
                     @Override
-                    public void onConfirm() {
-                        Toast.makeText(DialogActivity.this, "点击确定", Toast.LENGTH_SHORT).show();
+                    public void onClick(Dialog dialog) {
+                        
                     }
 
+                })
+                .setNegativeButton("取消", new IOSMessageDialog.OnClickListener() {
                     @Override
-                    public void onCancel() {
-                        Toast.makeText(DialogActivity.this, "点击取消", Toast.LENGTH_SHORT).show();
+                    public void onClick(Dialog dialog) {
+
                     }
                 })
                 .create();

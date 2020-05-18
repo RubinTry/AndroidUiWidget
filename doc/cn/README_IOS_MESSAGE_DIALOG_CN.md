@@ -22,4 +22,25 @@
                     }
                 })
                 .create();
+
+
+
+     dialog = new IOSMessageDialog.Builder(this)
+                .setCancelable(true) //设置是否能够取消
+                .setMessage("这是信息") //设置你的提示消息
+                .setTextColor(ContextCompat.getColor(this, R.color.txtColor)) //设置你的文字提示的颜色
+                .setPositiveButton("更新", new IOSMessageDialog.OnClickListener() {
+                    @Override
+                    public void onClick(Dialog dialog) {
+                        //设置你的确定按钮名称，并添加监听事件
+                    }
+
+                })
+                .setNegativeButton("取消", new IOSMessageDialog.OnClickListener() {
+                    @Override
+                    public void onClick(Dialog dialog) {
+                        //设置你的取消按钮名称，并添加监听事件
+                    }
+                })
+                .create();
 ```
