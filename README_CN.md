@@ -65,29 +65,11 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 ### IOSMessageDialog
 
 ```java
-   dialog = new IOSMessageDialog.Builder(this)
-                .setCancelable(true)
-                .setMessage("你要提示的消息")
-                .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
-                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
-                    @Override
-                    public void onConfirm() {
-
-                    }
-
-                    @Override
-                    public void onCancel() {
-
-                    }
-                })
-                .create();
-
-    dialog.show();
-    
+   
     
     dialog = new IOSMessageDialog.Builder(this)
                 .setCancelable(true) //设置是否能够取消
-                .setMessage("这是信息") //设置你的提示消息
+                .setMessage("你要提示的消息") //设置你的提示消息
                 .setTextColor(ContextCompat.getColor(this, R.color.txtColor)) //设置你的文字提示的颜色
                 .setPositiveButton("更新", new IOSMessageDialog.OnClickListener() {
                     @Override
@@ -103,6 +85,8 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
                     }
                 })
                 .create();
+
+    dialog.show();
 ```
 
 ### IOSBottomListDialog
