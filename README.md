@@ -47,7 +47,7 @@ maven
 
 gradle
 ```groovy
-implementation 'cn.rubintry.widget:dialog:1.0.5'
+implementation 'cn.rubintry.widget:dialog:1.0.7'
 ```
 
 ### Widget
@@ -74,26 +74,7 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 
 ### IOSMessageDialog
 ```java
-   dialog = new IOSMessageDialog.Builder(this)
-                .setCancelable(true)
-                .setMessage("this is a message")
-                .setTextColor(ContextCompat.getColor(this , R.color.txtColor))
-                .setOnButtonClickListener(new IOSMessageDialog.OnButtonClickListener() {
-                    @Override
-                    public void onConfirm() {
-                        Toast.makeText(MainActivity.this, "click the confirm", Toast.LENGTH_SHORT).show();
-                    }
 
-                    @Override
-                    public void onCancel() {
-                        Toast.makeText(MainActivity.this, "click the cancel", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .create();
-
-    dialog.show();
-    
-    
     
     dialog = new IOSMessageDialog.Builder(this)
                 .setCancelable(true) //Set can cancel
@@ -113,6 +94,8 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
                     }
                 })
                 .create();  
+
+    dialog.show();
 ```
 
 

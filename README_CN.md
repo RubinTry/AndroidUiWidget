@@ -37,7 +37,7 @@ maven
 
 gradle
 ```groovy
-implementation 'cn.rubintry.widget:dialog:1.0.5'
+implementation 'cn.rubintry.widget:dialog:1.0.7'
 ```
 
 ### Widget
