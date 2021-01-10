@@ -61,7 +61,7 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 
 ## Show
 
-||||
+|Widget Name| Preview | Widget description |
 |:---:|:---:|:---:|
 |[IOSMessageDialog][readme_ios_message_dialog]|![](https://user-images.githubusercontent.com/25943524/81573478-236fc280-93d7-11ea-9778-885c0cce20c5.gif)|This is an IOS style general message dialog|
 |[IOSBottomListDialog][readme_ios_bottom_list_dialog]|![](https://user-images.githubusercontent.com/25943524/81573566-3aaeb000-93d7-11ea-91ed-1fea529f6442.gif)|This is an IOS style general bottom list dialog|
