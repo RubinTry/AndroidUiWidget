@@ -65,7 +65,7 @@ implementation 'cn.rubintry.widget:widget:1.0.5'
 |:---:|:---:|:---:|
 |[IOSMessageDialog][readme_ios_message_dialog]|![](https://user-images.githubusercontent.com/25943524/81573478-236fc280-93d7-11ea-9778-885c0cce20c5.gif)|This is an IOS style general message dialog|
 |[IOSBottomListDialog][readme_ios_bottom_list_dialog]|![](https://user-images.githubusercontent.com/25943524/81573566-3aaeb000-93d7-11ea-91ed-1fea529f6442.gif)|This is an IOS style general bottom list dialog|
-|[ElasticView][readme_elastic_view]|![](https://user-images.githubusercontent.com/25943524/81596728-224e8d80-93f7-11ea-998a-e76a1870da17.gif)|This is a elastic view that can flexibly nest and control conditions|
+|[ElasticView][readme_elastic_view]|![](https://user-images.githubusercontent.com/25943524/81596728-224e8d80-93f7-11ea-998a-e76a1870da17.gif)|This is an elastic view that can flexibly nest and control conditions|
 
 
 <!-- 
