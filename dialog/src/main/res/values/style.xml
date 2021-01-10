@@ -24,4 +24,36 @@
         <item name="android:textColor">@color/dialog_ios_default_button_check</item>
     </style>
 
+
+    <style name="GlobalDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/notifyDialogAnimations</item>
+    </style>
+
+    <style name="notifyDialogAnimations" parent="@android:style/Animation.Activity">
+        <item name="android:activityCloseEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:activityOpenEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/dialog_exit</item>
+        <item name="android:activityCloseExitAnimation">@anim/dialog_exit</item>
+    </style>
+
+    <style name="DialogNotifyAnimations">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+
+    <style name="HideToRight">
+        <item name="android:windowExitAnimation">@anim/slide_to_right_out</item>
+    </style>
+
+    <style name="GlobalAlertTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 </resources>

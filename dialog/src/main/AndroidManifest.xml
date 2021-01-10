@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.rubintry.dialog" />
+    package="cn.rubintry.dialog" >
+
+    <application>
+        <activity android:name=".ios.activity.SystemDialogActivity"
+            android:theme="@style/GlobalDialogTheme"/>
+    </application>
+</manifest>

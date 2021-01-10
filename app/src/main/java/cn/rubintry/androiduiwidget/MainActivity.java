@@ -26,6 +26,7 @@ import cn.rubintry.androiduiwidget.adapter.TestListAdapter;
 import cn.rubintry.androiduiwidget.adapter.WidgetTypeAdapter;
 import cn.rubintry.androiduiwidget.base.BaseActivity;
 import cn.rubintry.androiduiwidget.model.TestDataModel;
+import cn.rubintry.androiduiwidget.view.circle.CircleImageViewActivity;
 import cn.rubintry.androiduiwidget.view.dialog.DialogActivity;
 import cn.rubintry.androiduiwidget.view.elastic.ElasticActivity;
 import cn.rubintry.dialog.base.IDialog;
@@ -60,6 +61,7 @@ public class MainActivity extends BaseActivity {
         widgetTypeList = new ArrayList<>();
         widgetTypeList.add("Dialog");
         widgetTypeList.add("ElasticView");
+        widgetTypeList.add("CircleImageView");
         rvWidgetTypeList.setLayoutManager(new LinearLayoutManager(this));
         rvWidgetTypeList.setNestedScrollingEnabled(false);
         widgetTypeAdapter = new WidgetTypeAdapter(widgetTypeList);
@@ -78,6 +80,10 @@ public class MainActivity extends BaseActivity {
                 case 1:
                     //ElasticView
                     startActivity(new Intent(MainActivity.this , ElasticActivity.class));
+                    break;
+                case 2:
+                    //CircleImageView
+                    startActivity(new Intent(MainActivity.this , CircleImageViewActivity.class));
                     break;
                     default:
                         break;

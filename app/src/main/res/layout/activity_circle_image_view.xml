@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.circle.CircleImageViewActivity">
+
+
+    <cn.rubintry.widget.elastic.CircleImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:background="@drawable/naruto"
+        app:paddingLeft="20dp"
+        app:paddingRight="20dp"
+        android:background="#000"
+        app:scaleMode="fitCenter"></cn.rubintry.widget.elastic.CircleImageView>
+</LinearLayout>

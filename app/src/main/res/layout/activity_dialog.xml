@@ -19,4 +19,9 @@
         android:text="底部列表"></Button>
 
 
+    <Button
+        android:id="@+id/btnGlobalDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="悬浮窗" />
 </LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="background" format="reference"></attr>
+        <attr name="scaleMode" format="enum">
+            <enum name="none" value="0"></enum>
+            <enum name="fitCenter" value="1"></enum>
+        </attr>
+        <attr name="paddingLeft" format="dimension"></attr>
+        <attr name="paddingRight" format="dimension"></attr>
+    </declare-styleable>
+</resources>
