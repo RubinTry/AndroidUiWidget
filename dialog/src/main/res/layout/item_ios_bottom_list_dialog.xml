@@ -9,13 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:gravity="center"
-        android:text="data"
         android:textColor="@color/txtBlue"
-        android:textSize="16sp"></TextView>
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"/>
 
-    <View
-        android:id="@+id/vBaseLine"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#dddddd"></View>
 </LinearLayout>

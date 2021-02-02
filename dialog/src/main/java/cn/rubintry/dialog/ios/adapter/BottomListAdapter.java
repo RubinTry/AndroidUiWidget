@@ -47,16 +47,17 @@ public class BottomListAdapter extends RecyclerView.Adapter<BottomListAdapter.Bo
 
     @Override
     public void onBindViewHolder(@NonNull BottomListViewHolder holder, final int position) {
-        if(position == 0){
-            holder.vBaseLine.setVisibility(View.VISIBLE);
-            holder.tvIosBottomItem.setBackground(ContextCompat.getDrawable(context , R.drawable.bg_ripple_ios_bottom_list_item_top));
-        }else if(position == dataList.size() - 1){
-            holder.vBaseLine.setVisibility(View.GONE);
-            holder.tvIosBottomItem.setBackground(ContextCompat.getDrawable(context , R.drawable.bg_ripple_ios_bottom_list_item_bottom));
-        }else{
-            holder.vBaseLine.setVisibility(View.VISIBLE);
-            holder.tvIosBottomItem.setBackground(ContextCompat.getDrawable(context , R.drawable.bg_ripple_ios_bottom_list_item));
-        }
+//        if(position == 0){
+//            holder.vBaseLine.setVisibility(View.VISIBLE);
+//            holder.tvIosBottomItem.setBackground(ContextCompat.getDrawable(context , R.drawable.bg_ripple_ios_bottom_list_item_top));
+//        }else if(position == dataList.size() - 1){
+//            holder.vBaseLine.setVisibility(View.GONE);
+//            holder.tvIosBottomItem.setBackground(ContextCompat.getDrawable(context , R.drawable.bg_ripple_ios_bottom_list_item_bottom));
+//        }else{
+//            holder.vBaseLine.setVisibility(View.VISIBLE);
+//            holder.tvIosBottomItem.setBackground(ContextCompat.getDrawable(context , R.drawable.bg_ripple_ios_bottom_list_item));
+//        }
+        holder.tvIosBottomItem.setBackground(ContextCompat.getDrawable(context , R.drawable.bg_ripple_ios_bottom_list_item));
         holder.tvIosBottomItem.setText(dataList.get(position));
         holder.tvIosBottomItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,11 +76,11 @@ public class BottomListAdapter extends RecyclerView.Adapter<BottomListAdapter.Bo
 
     class BottomListViewHolder extends RecyclerView.ViewHolder {
         TextView tvIosBottomItem;
-        View vBaseLine;
+//        View vBaseLine;
         public BottomListViewHolder(@NonNull View itemView) {
             super(itemView);
             tvIosBottomItem = itemView.findViewById(R.id.tvIosBottomItem);
-            vBaseLine = itemView.findViewById(R.id.vBaseLine);
+//            vBaseLine = itemView.findViewById(R.id.vBaseLine);
         }
     }
 

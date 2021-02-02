@@ -62,11 +62,10 @@ public class WidgetTypeAdapter extends RecyclerView.Adapter<WidgetTypeAdapter.Ty
     }
 
     public class TypeViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.tvWidgetTypeData)
         TextView tvWidgetTypeData;
         public TypeViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this , itemView);
+            tvWidgetTypeData = itemView.findViewById(R.id.tvWidgetTypeData);
         }
     }
 

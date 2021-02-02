@@ -12,14 +12,14 @@ import cn.rubintry.dialog.base.BaseClickListener
 import cn.rubintry.dialog.base.IBottomDialogBuilder
 import cn.rubintry.dialog.base.IDialogBuilder
 import cn.rubintry.dialog.ios.adapter.BottomListAdapter
-import kotlinx.android.synthetic.main.fragment_line_check.*
+import kotlinx.android.synthetic.main.ios_bottom_list_dialog.*
 import java.lang.ref.WeakReference
 
 /**
  * @author logcat
  * 底部弹出式列表弹窗(IOS风格)
  */
-class IOSBottomListDialog : BaseBottomDialog {
+class IOSBottomListDialog(builder: Builder) : BaseBottomDialog(builder.contextWeakReference.get()!!, builder.getCancelable(), builder.getCancelListener()) {
     private var onItemClickListener: OnItemClickListener? = null
     private var drawable: Drawable? = null
     private var messageList: List<String>? = null
@@ -28,52 +28,57 @@ class IOSBottomListDialog : BaseBottomDialog {
     private var bottomListAdapter: BottomListAdapter? = null
     private var tvCancel: TextView? = null
 
-    constructor(builder: Builder) : super(builder.contextWeakReference.get()!!, builder.cancelable, builder.cancelListener) {
-        messageList = builder.list
+    init {
+        messageList = builder.getList()
         itemTextColor = builder.itemTextColor
         itemTextSize = builder.itemTextSize
         width = builder.width
         height = builder.height
         drawable = builder.drawable
-        onItemClickListener = builder.onItemClickListener
-        context = builder.contextWeakReference.get()
+        onItemClickListener = builder.getOnItemClickListener()
+        mContext = builder.contextWeakReference.get()
     }
 
-    override fun setDrawable(): Drawable {
-        return drawable!!
+    override fun setDrawable(): Drawable? {
+        return drawable
     }
 
-    override fun onCreate(savedInstanceState: Bundle) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         tvCancel = findViewById(R.id.tvCancel)
         bottomListAdapter = BottomListAdapter(context, messageList)
         rvBottomList.layoutManager = LinearLayoutManager(context)
         rvBottomList?.isNestedScrollingEnabled = false
         rvBottomList?.adapter = bottomListAdapter
-        bottomListAdapter!!.setOnItemClickListener { content, position ->
+        bottomListAdapter?.setOnItemClickListener { content, position ->
             if (onItemClickListener != null) {
-                onItemClickListener!!.onItemClick(content, position)
+                onItemClickListener?.onItemClick(content, position)
             }
             cancel()
         }
-        tvCancel!!.setOnClickListener { cancel() }
+        tvCancel?.setOnClickListener { cancel() }
     }
 
     override fun setContent(): Int {
         return R.layout.ios_bottom_list_dialog
     }
 
+    override fun show() {
+        super.show()
+        window?.setWindowAnimations(R.style.ios_bottom_list_animation)
+    }
+
     class Builder(context: Context) : IBottomDialogBuilder {
         val contextWeakReference: WeakReference<Context> = WeakReference(context)
-        var list: List<String>? = null
+        private var list: List<String>? = null
         var itemTextSize: Int? = null
         var itemTextColor: Int? = null
-        var cancelable = false
+        private var cancelable = false
         private var cancelListener: DialogInterface.OnCancelListener? = null
         var drawable: Drawable? = null
         var width = 0
         var height = 0
-        var onItemClickListener: OnItemClickListener? = null
+        private var onItemClickListener: OnItemClickListener? = null
         fun setList(list: List<String>?): Builder {
             this.list = list
             return this
@@ -101,7 +106,7 @@ class IOSBottomListDialog : BaseBottomDialog {
         }
 
         override fun setTitle(title: String): IDialogBuilder {
-            return null
+            return this
         }
 
         override fun setMessage(message: String): Builder {
@@ -109,7 +114,7 @@ class IOSBottomListDialog : BaseBottomDialog {
         }
 
         override fun setMessageTextSize(spValue: Int): Builder {
-            return null
+            return this
         }
 
         override fun setTextColor(textColor: Int): Builder {
@@ -121,7 +126,7 @@ class IOSBottomListDialog : BaseBottomDialog {
             return this
         }
 
-        override fun setCancelListener(cancelListener: DialogInterface.OnCancelListener): Builder {
+        override fun setCancelListener(cancelListener: DialogInterface.OnCancelListener?): Builder {
             this.cancelListener = cancelListener
             return this
         }
@@ -135,8 +140,24 @@ class IOSBottomListDialog : BaseBottomDialog {
             return this
         }
 
+        fun getCancelListener() : DialogInterface.OnCancelListener? {
+            return cancelListener
+        }
+
+        fun getCancelable(): Boolean{
+            return cancelable
+        }
+
+        fun getList(): List<String>?{
+            return list
+        }
+
+        fun getOnItemClickListener() : OnItemClickListener?{
+            return onItemClickListener
+        }
+
         override fun create(): IOSBottomListDialog {
-            require(!(list == null || list!!.size == 0)) { "Please add some items!!!" }
+            require(!(list == null || list?.size == 0)) { "Please add some items!!!" }
             return IOSBottomListDialog(this)
         }
 

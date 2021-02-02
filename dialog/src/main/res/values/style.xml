@@ -56,4 +56,16 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
+
+    <style name="ios_bottom_list_animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_bottom_list_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_list_exit</item>
+    </style>
+
+
+    <style name="ios_message_dialog_animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_message_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_message_exit</item>
+    </style>
 </resources>

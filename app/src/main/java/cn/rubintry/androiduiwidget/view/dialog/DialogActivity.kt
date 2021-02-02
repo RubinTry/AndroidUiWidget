@@ -1,195 +1,130 @@
-package cn.rubintry.androiduiwidget.view.dialog;
+package cn.rubintry.androiduiwidget.view.dialog
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
-
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.provider.Settings;
-import android.view.ContextThemeWrapper;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import butterknife.OnClick;
-import cn.rubintry.androiduiwidget.MainActivity;
-import cn.rubintry.androiduiwidget.R;
-import cn.rubintry.androiduiwidget.base.BaseActivity;
-import cn.rubintry.dialog.base.IDialog;
-import cn.rubintry.dialog.ios.GlobalAlertDialog;
-import cn.rubintry.dialog.ios.GlobalDialog;
-import cn.rubintry.dialog.ios.IOSBottomListDialog;
-import cn.rubintry.dialog.ios.IOSMessageDialog;
+import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
+import android.os.*
+import android.provider.Settings
+import android.view.View
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import cn.rubintry.androiduiwidget.R
+import cn.rubintry.androiduiwidget.base.BaseActivity
+import cn.rubintry.dialog.base.IDialog
+import cn.rubintry.dialog.ios.GlobalAlertDialog
+import cn.rubintry.dialog.ios.GlobalAlertDialog.OnNotifyClickListener
+import cn.rubintry.dialog.ios.GlobalDialog
+import cn.rubintry.dialog.ios.IOSBottomListDialog
+import cn.rubintry.dialog.ios.IOSMessageDialog
+import kotlinx.android.synthetic.main.activity_dialog.*
+import java.util.*
 
 /**
  * @author logcat
  */
-public class DialogActivity extends BaseActivity {
-
-
-    private IDialog dialog;
-    private IDialog bottomDialog;
-    private GlobalDialog globalDialog;
-    private GlobalAlertDialog globalAlertDialog;
-
-    private TestHandler testHandler = new TestHandler();
-
-    private boolean showDialog = true;
-
-    @Override
-    protected int setLayout() {
-        return R.layout.activity_dialog;
+class DialogActivity : BaseActivity(), View.OnClickListener {
+    private var dialog: IDialog? = null
+    private var bottomDialog: IDialog? = null
+    private var globalDialog: GlobalDialog? = null
+    private var globalAlertDialog: GlobalAlertDialog? = null
+    private val testHandler = TestHandler()
+    private var showDialog = true
+    override fun setLayout(): Int {
+        return R.layout.activity_dialog
     }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        createDialog();
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        createDialog()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
                 //若未授权则请求权限
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-                intent.setData(Uri.parse("package:" + getPackageName()));
-                startActivityForResult(intent, 0);
+                val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
+                intent.data = Uri.parse("package:$packageName")
+                startActivityForResult(intent, 0)
             } else {
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        while (showDialog) {
-//                            Message message = new Message();
-//                            message.what = 1;
-//                            testHandler.sendMessage(message);
-//                            try {
-//                                Thread.sleep(3000);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
-//                        }
-//                    }
-//                }).start();
             }
         }
-
-
+        initListener()
     }
 
-    private void createDialog() {
+    private fun initListener() {
+        btnTipsDialog.setOnClickListener(this)
+        btnBottomListDialog.setOnClickListener(this)
+        btnGlobalDialog.setOnClickListener(this)
+    }
 
-        dialog = new IOSMessageDialog.Builder(this)
+    private fun createDialog() {
+        dialog = IOSMessageDialog.Builder(this)
                 .setCancelable(true)
                 .setMessage("这是信息")
                 .setTextColor(ContextCompat.getColor(this, R.color.txtColor))
-                .setPositiveButton("更新", new IOSMessageDialog.OnClickListener() {
-                    @Override
-                    public void onClick(Dialog dialog) {
+                .setPositiveButton("更新" , object : IOSMessageDialog.OnClickListener{
+                    override fun onClick(dialog: Dialog?) {
 
                     }
 
                 })
-                .setNegativeButton("取消", new IOSMessageDialog.OnClickListener() {
-                    @Override
-                    public void onClick(Dialog dialog) {
+                .setNegativeButton("取消" , object : IOSMessageDialog.OnClickListener{
+                    override fun onClick(dialog: Dialog?) {
 
                     }
+
                 })
-                .create();
-
-
-        List<String> list = new ArrayList<>();
-        list.add("男");
-//        list.add("女");
-//        list.add("不显示");
-        bottomDialog = new IOSBottomListDialog.Builder(this)
+                .create()
+        val list: MutableList<String> = ArrayList()
+        list.add("男")
+        list.add("女");
+        list.add("不显示");
+        bottomDialog = IOSBottomListDialog.Builder(this)
                 .setCancelable(true)
                 .setList(list)
                 .setCancelListener(null)
-                .setOnItemClickListener(new IOSBottomListDialog.OnItemClickListener() {
-                    @Override
-                    public void onCancel() {
-
+                .setOnItemClickListener(object : IOSBottomListDialog.OnItemClickListener {
+                    override fun onCancel() {}
+                    override fun onItemClick(content: String?, position: Int) {
+                        Toast.makeText(this@DialogActivity, content, Toast.LENGTH_SHORT).show()
                     }
-
-                    @Override
-                    public void onItemClick(String content, int position) {
-                        Toast.makeText(DialogActivity.this, content, Toast.LENGTH_SHORT).show();
-                    }
-
-                }).create();
-
-
-        globalDialog = new GlobalDialog.Builder(getApplicationContext())
-                .setLayoutId(R.layout.notify_dialog).create();
-
-        globalAlertDialog = new GlobalAlertDialog.Builder(getApplicationContext())
-                .setOnNotifyClickListener(new GlobalAlertDialog.OnNotifyClickListener() {
-                    @Override
-                    public void onRootViewClick() {
-                        Toast.makeText(DialogActivity.this, "消息被点击了", Toast.LENGTH_SHORT).show();
+                }).create()
+        globalDialog = GlobalDialog.Builder(applicationContext)
+                .setLayoutId(R.layout.notify_dialog).create()
+        globalAlertDialog = GlobalAlertDialog.Builder(applicationContext)
+                .setOnNotifyClickListener(object : OnNotifyClickListener {
+                    override fun onRootViewClick() {
+                        Toast.makeText(this@DialogActivity, "消息被点击了", Toast.LENGTH_SHORT).show()
                     }
                 })
-                .create();
+                .create()
+        globalAlertDialog?.setOnKeyListener { dialog, keyCode, event ->
+            showDialog = false
+            finish()
+            false
+        }
+    }
 
-        globalAlertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-            @Override
-            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                showDialog = false;
-                finish();
-                return false;
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.btnTipsDialog -> dialog?.show()
+            R.id.btnBottomListDialog -> bottomDialog?.show()
+            R.id.btnGlobalDialog -> //                globalDialog.show();
+                globalAlertDialog?.show()
+            else -> {
             }
-        });
-    }
-
-
-    @OnClick({R.id.btnTipsDialog, R.id.btnBottomListDialog, R.id.btnGlobalDialog})
-    void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnTipsDialog:
-                dialog.show();
-                break;
-            case R.id.btnBottomListDialog:
-                bottomDialog.show();
-                break;
-            case R.id.btnGlobalDialog:
-//                globalDialog.show();
-                globalAlertDialog.show();
-                break;
-            default:
-                break;
         }
     }
 
-
-    private class TestHandler extends Handler {
-
-        public TestHandler() {
-            super(Looper.getMainLooper());
-        }
-
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case 1:
-                    if (globalAlertDialog != null && !globalAlertDialog.isShowing()) {
-                        globalAlertDialog.show();
-                    } else {
-                        globalAlertDialog.cancel();
-                        globalAlertDialog.show();
-                    }
-                    break;
-                default:
-                    break;
+    private inner class TestHandler : Handler(Looper.getMainLooper()) {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            when (msg.what) {
+                1 -> if (globalAlertDialog != null && globalAlertDialog?.isShowing == false) {
+                    globalAlertDialog?.show()
+                } else {
+                    globalAlertDialog?.cancel()
+                    globalAlertDialog?.show()
+                }
+                else -> {
+                }
             }
         }
     }
