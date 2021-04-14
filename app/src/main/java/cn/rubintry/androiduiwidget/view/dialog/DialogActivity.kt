@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.*
 import android.provider.Settings
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import cn.rubintry.androiduiwidget.R
@@ -16,7 +17,6 @@ import cn.rubintry.dialog.ios.GlobalAlertDialog.OnNotifyClickListener
 import cn.rubintry.dialog.ios.GlobalDialog
 import cn.rubintry.dialog.ios.IOSBottomListDialog
 import cn.rubintry.dialog.ios.IOSMessageDialog
-import kotlinx.android.synthetic.main.activity_dialog.*
 import java.util.*
 
 /**
@@ -27,14 +27,19 @@ class DialogActivity : BaseActivity(), View.OnClickListener {
     private var bottomDialog: IDialog? = null
     private var globalDialog: GlobalDialog? = null
     private var globalAlertDialog: GlobalAlertDialog? = null
-    private val testHandler = TestHandler()
     private var showDialog = true
+    private var btnTipsDialog : Button ?= null
+    private var btnBottomListDialog : Button ?= null
+    private var btnGlobalDialog : Button ?= null
     override fun setLayout(): Int {
         return R.layout.activity_dialog
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        btnTipsDialog = findViewById(R.id.btnTipsDialog)
+        btnBottomListDialog = findViewById(R.id.btnBottomListDialog)
+        btnGlobalDialog = findViewById(R.id.btnGlobalDialog)
         createDialog()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
@@ -42,16 +47,15 @@ class DialogActivity : BaseActivity(), View.OnClickListener {
                 val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
                 intent.data = Uri.parse("package:$packageName")
                 startActivityForResult(intent, 0)
-            } else {
             }
         }
         initListener()
     }
 
     private fun initListener() {
-        btnTipsDialog.setOnClickListener(this)
-        btnBottomListDialog.setOnClickListener(this)
-        btnGlobalDialog.setOnClickListener(this)
+        btnTipsDialog?.setOnClickListener(this)
+        btnBottomListDialog?.setOnClickListener(this)
+        btnGlobalDialog?.setOnClickListener(this)
     }
 
     private fun createDialog() {

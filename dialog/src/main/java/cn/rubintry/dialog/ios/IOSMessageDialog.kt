@@ -68,21 +68,25 @@ class IOSMessageDialog(builder: Builder) : BaseCenterDialog(builder.contextWeakR
     }
 
     override fun show() {
-        super.show()
         window?.setWindowAnimations(R.style.ios_message_dialog_animation)
+        super.show()
     }
 
     override fun onClick(v: View) {
-        if (v.id == R.id.btn_confirm) {
-            onButtonClickListener?.onConfirm()
-            positiveBtnListener?.onClick(this)
-            cancel()
-        } else if (v.id == R.id.btn_cancel) {
-            onButtonClickListener?.onCancel()
-            negativeBtnListener?.onClick(this)
-            cancel()
-        } else if (v.id == R.id.llContainer) {
-            Log.d("dialog", "onClick: ")
+        when (v.id) {
+            R.id.btn_confirm -> {
+                onButtonClickListener?.onConfirm()
+                positiveBtnListener?.onClick(this)
+                cancel()
+            }
+            R.id.btn_cancel -> {
+                onButtonClickListener?.onCancel()
+                negativeBtnListener?.onClick(this)
+                cancel()
+            }
+            R.id.llContainer -> {
+                Log.d("dialog", "onClick: ")
+            }
         }
     }
 
@@ -111,58 +115,128 @@ class IOSMessageDialog(builder: Builder) : BaseCenterDialog(builder.contextWeakR
             return onCancelListener
         }
 
+
+        /**
+         * 设置文字内容颜色
+         *
+         * @param textColor
+         * @return
+         */
         override fun setTextColor(textColor: Int): Builder {
             this.textColor = textColor
             return this
         }
 
+        /**
+         * 设置文字内容
+         *
+         * @param message
+         * @return
+         */
         override fun setMessage(message: String): Builder {
             this.message = message
             return this
         }
 
+        /**
+         * 设置文字内容的大小
+         *
+         * @param textSize
+         * @return
+         */
         override fun setMessageTextSize(textSize: Int): Builder {
             this.textSize = textSize
             return this
         }
 
+        /**
+         * 设置弹窗的宽高
+         *
+         * @param width
+         * @param height
+         * @return
+         */
         override fun setSize(width: Int, height: Int): Builder {
             this.width = width
             this.height = height
             return this
         }
 
+        /**
+         * 设置整个弹窗的背景
+         *
+         * @param drawable
+         * @return
+         */
         override fun setDrawable(drawable: Drawable): Builder {
             this.drawable = drawable
             return this
         }
 
+        /**
+         * 设置弹窗标题
+         *
+         * @param title
+         * @return
+         */
         override fun setTitle(title: String): Builder {
             this.title = title
             return this
         }
 
+        /**
+         * 设置是否可以取消
+         *
+         * @param cancelable
+         * @return
+         */
         override fun setCancelable(cancelable: Boolean): Builder {
             this.cancelable = cancelable
             return this
         }
 
+        /**
+         * 设置点击“取消”按钮后的回调
+         *
+         * @param cancelListener
+         * @return
+         */
         override fun setCancelListener(cancelListener: DialogInterface.OnCancelListener): Builder {
             onCancelListener = cancelListener
             return this
         }
 
+        /**
+         * 统一设置按钮的点击事件
+         *
+         * @param listener
+         * @return
+         */
         override fun setOnButtonClickListener(listener: BaseClickListener): Builder {
             onButtonClickListener = listener as OnButtonClickListener
             return this
         }
 
+        /**
+         * “确定”按钮的点击事件
+         *
+         * @param positiveBtn
+         * @param listener
+         * @return
+         */
         fun setPositiveButton(positiveBtn: String?, listener: OnClickListener?): Builder {
             positiveBtnListener = listener
             this.positiveBtn = positiveBtn
             return this
         }
 
+        /**
+         * “取消”按钮的点击事件
+         *
+         * @param negativeBtn
+         * @param listener
+         * @return
+         */
         fun setNegativeButton(negativeBtn: String?, listener: OnClickListener?): Builder {
             negativeBtnListener = listener
             this.negativeBtn = negativeBtn

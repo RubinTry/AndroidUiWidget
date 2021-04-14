@@ -64,7 +64,7 @@
     </style>
 
 
-    <style name="ios_message_dialog_animation">
+    <style name="ios_message_dialog_animation" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/dialog_message_enter</item>
         <item name="android:windowExitAnimation">@anim/dialog_message_exit</item>
     </style>

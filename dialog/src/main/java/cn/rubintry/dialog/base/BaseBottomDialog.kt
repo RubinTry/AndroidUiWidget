@@ -46,8 +46,8 @@ open class BaseBottomDialog : BaseDialog {
         window?.setGravity(Gravity.BOTTOM)
         //调整窗体大小
         val params = window?.attributes
-        params.width = width
-        params.height = height
+        params?.width = width
+        params?.height = height
         var drawable = setDrawable()
         if (drawable == null) {
             drawable = ColorDrawable(Color.TRANSPARENT)

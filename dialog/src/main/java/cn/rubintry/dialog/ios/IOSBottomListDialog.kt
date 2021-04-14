@@ -6,13 +6,13 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cn.rubintry.dialog.R
 import cn.rubintry.dialog.base.BaseBottomDialog
 import cn.rubintry.dialog.base.BaseClickListener
 import cn.rubintry.dialog.base.IBottomDialogBuilder
 import cn.rubintry.dialog.base.IDialogBuilder
 import cn.rubintry.dialog.ios.adapter.BottomListAdapter
-import kotlinx.android.synthetic.main.ios_bottom_list_dialog.*
 import java.lang.ref.WeakReference
 
 /**
@@ -27,6 +27,7 @@ class IOSBottomListDialog(builder: Builder) : BaseBottomDialog(builder.contextWe
     private var itemTextColor: Int? = null
     private var bottomListAdapter: BottomListAdapter? = null
     private var tvCancel: TextView? = null
+    private var rvBottomList : RecyclerView ?= null
 
     init {
         messageList = builder.getList()
@@ -46,8 +47,9 @@ class IOSBottomListDialog(builder: Builder) : BaseBottomDialog(builder.contextWe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         tvCancel = findViewById(R.id.tvCancel)
+        rvBottomList = findViewById(R.id.rvBottomList)
         bottomListAdapter = BottomListAdapter(context, messageList)
-        rvBottomList.layoutManager = LinearLayoutManager(context)
+        rvBottomList?.layoutManager = LinearLayoutManager(context)
         rvBottomList?.isNestedScrollingEnabled = false
         rvBottomList?.adapter = bottomListAdapter
         bottomListAdapter?.setOnItemClickListener { content, position ->

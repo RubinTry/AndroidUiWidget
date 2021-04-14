@@ -3,12 +3,12 @@ package cn.rubintry.androiduiwidget
 import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cn.rubintry.androiduiwidget.adapter.WidgetTypeAdapter
 import cn.rubintry.androiduiwidget.base.BaseActivity
 import cn.rubintry.androiduiwidget.view.circle.CircleImageViewActivity
 import cn.rubintry.androiduiwidget.view.dialog.DialogActivity
 import cn.rubintry.androiduiwidget.view.elastic.ElasticActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 /**
@@ -17,25 +17,27 @@ import java.util.*
 class MainActivity : BaseActivity() {
     private var widgetTypeAdapter: WidgetTypeAdapter? = null
     private var widgetTypeList: MutableList<String> = mutableListOf()
+    private var rvWidgetTypeList: RecyclerView ?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initRecycler()
+        rvWidgetTypeList = findViewById(R.id.rvWidgetTypeList)
+        initRecyclerView()
     }
 
     override fun setLayout(): Int {
         return R.layout.activity_main
     }
 
-    private fun initRecycler() {
+    private fun initRecyclerView() {
         widgetTypeList.clear()
         widgetTypeList = ArrayList()
         widgetTypeList.add("Dialog")
         widgetTypeList.add("ElasticView")
         widgetTypeList.add("CircleImageView")
-        rvWidgetTypeList.layoutManager = LinearLayoutManager(this)
-        rvWidgetTypeList.isNestedScrollingEnabled = false
+        rvWidgetTypeList?.layoutManager = LinearLayoutManager(this)
+        rvWidgetTypeList?.isNestedScrollingEnabled = false
         widgetTypeAdapter = WidgetTypeAdapter(widgetTypeList)
-        rvWidgetTypeList.adapter = widgetTypeAdapter
+        rvWidgetTypeList?.adapter = widgetTypeAdapter
         widgetTypeAdapter?.setOnItemClickListener(listener)
     }
 
