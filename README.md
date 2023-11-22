@@ -1,4 +1,6 @@
 
+
+## [本库已迁移至新库，请移驾这里][https://github.com/RubinTry/NBUI]
 ## [中文文档][readme_cn]
 
 <!--![logo](https://rubintry.cn/icon.png)-->
